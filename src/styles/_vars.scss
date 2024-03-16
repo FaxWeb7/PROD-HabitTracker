@@ -1,0 +1,18 @@
+$containerWidth: 1450;
+$containerYPadding: 60;
+$containerXPadding: 30;
+
+$bodyBackground: white;
+
+%font{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
