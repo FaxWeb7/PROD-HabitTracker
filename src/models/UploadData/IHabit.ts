@@ -3,6 +3,7 @@ export interface IHabit {
     title: string
     category: string
     addDate: Date
-    period: 'daily' | 'weekly' | 'monthly'
+    period: string
     targetValue?: number
+    stoppedDate?: Date
 }
