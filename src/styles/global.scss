@@ -5,12 +5,13 @@
 html {
   height: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body{
   @extend %font;
   height: 100%;
-  background-color: $bodyBackground;
+  background-color: $bodyBackgroundColor;
   overflow-x: hidden;
   min-width: 320px;
   &.locked{
@@ -24,42 +25,47 @@ body{
   min-height: 100%;
 }
 .header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 10;
-}
-.main{
   flex: 1 0 auto;
 }
-.footer{
+.main{
   flex: 0 0 auto;
 }
-
 .container {
   width: 100%;
   max-width: $containerWidth + px;
   margin: 0 auto;
   padding: $containerYPadding + px $containerXPadding + px;
+  @media(max-width: 576px){
+    padding: 20px 10px;
+  }
 }
 
 h1 {
   font-size: 40px;
+  font-weight: 600;
+  color: $secondaryColor;
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 30px;
+  color: $secondaryColor;
 }
 
 h3 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
+  color: $secondaryColor;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 18px;
+  color: $secondaryColor;
 }
 
 p {
   font-weight: 400;
   font-size: 16px;
+  color: $secondaryColor;
 }

@@ -1,8 +1,12 @@
-$containerWidth: 1450;
-$containerYPadding: 60;
+$containerWidth: 1280;
+$containerYPadding: 20;
 $containerXPadding: 30;
 
-$bodyBackground: white;
+$bodyBackgroundColor: #F5F5F5;
+$primaryColor: #1088F2;
+$primaryLightColor: #0DC7F2;
+$secondaryColor: #2E2E2E;
+$secondaryLightColor: #9F9F9F;
 
 %font{
   font-family: 'Montserrat', sans-serif;
@@ -10,9 +14,4 @@ $bodyBackground: white;
   font-weight: 400;
   font-size: 16px;
   color: black;
-}
-
-@keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
 }
