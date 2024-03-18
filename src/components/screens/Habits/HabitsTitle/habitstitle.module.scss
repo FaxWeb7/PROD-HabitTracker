@@ -12,47 +12,13 @@
     align-items: flex-start;
     justify-content: flex-end;
     &-title{
-      font-size: 44px;
-    }
-  }
-  &__button{
-    padding: 14px 18px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(0.6turn, $primaryLightColor, $primaryColor, );
-    transition: all .5s ease;
-    border-radius: 8px;
-    &-img{
-      color: white;
-      width: 26px;
-      height: 26px;
-    }
-    &-text{
-      font-size: 18px;
-      color: white;
-    }
-    &:hover{
-      transform: scale(1.02);
+      font-size: 34px;
     }
   }
   @media(max-width: 1080px){
     &__info{
       &-title{
-        font-size: 32px;
-      }
-    }
-    &__button{
-      padding: 10px 12px;
-      gap: 4px;
-      &-img{
-        width: 22px;
-        height: 22px;
-      }
-      &-text{
-        font-size: 16px;
+        font-size: 30px;
       }
     }
   }

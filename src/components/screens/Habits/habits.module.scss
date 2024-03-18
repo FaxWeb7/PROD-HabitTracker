@@ -2,13 +2,11 @@
   &__inner{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    gap: 50px;
+    gap: 40px;
   }
-  &__data{
+  &__main{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     gap: 30px;
     width: 60%;
   }
@@ -20,11 +18,11 @@
   }
   @media(max-width: 1100px){
     &__inner{
-      gap: 35px;
+      gap: 30px;
     }
   }
   @media(max-width: 840px){
-    &__data{
+    &__main{
       width: 100%;
     }
     &__info{

@@ -3,13 +3,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 15px;
+  padding: 14px 10px;
   background-color: #fff;
   border-radius: 12px;
   gap: 20px;
   &__prev, &__next{
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
   }
   &__list{
     display: flex;
@@ -20,31 +20,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
     &-day{
       opacity: 0.7;
+      font-size: 12px;
     }
     &-date{
-      font-size: 28px;
+      font-size: 22px;
+      font-weight: 500;
     }
   }
-  @media(max-width: 1100px){
-    padding: 15px 10px;
+  @media(max-width: 1024px){
     gap: 10px;
     &__prev, &__next{
       width: 20px;
       height: 20px;
     }
     &__list{
-      gap: 20px;
+      gap: 12px;
     }
     &__item{
-      gap: 1px;
       &-day{
-        font-size: 15px;
+        font-size: 12px;
       }
       &-date{
-        font-size: 22px;
+        font-size: 20px;
       }
     }
   }
@@ -52,27 +51,16 @@
     &__list{
       gap: 30px;
     }
-    &__item{
-      gap: 1px;
-      &-day{
-        font-size: 14px;
-      }
-      &-date{
-        font-size: 20px;
-      }
-    }
   }
   @media(max-width: 592px){
-    gap: 0;
     &__prev, &__next{
-      width: 14px;
-      height: 14px;
+      width: 18px;
+      height: 18px;
     }
     &__list{
-      gap: 0;
+      gap: 10px;
     }
     &__item{
-      margin-left: -5px;
       gap: 0;
       &-day{
         font-size: 12px;
@@ -80,6 +68,27 @@
       &-date{
         font-size: 18px;
       }
+    }
+  }
+  
+  @media(max-width: 420px){
+    gap: 0;
+    &__list{
+      gap: 2px;
+    }
+    &__item{
+      gap: 0;
+      &-day{
+        font-size: 12px;
+      }
+      &-date{
+        font-size: 16px;
+      }
+    }
+  }
+  @supports (-webkit-touch-callout: none) {
+    &__item{
+      margin-left: -6px;
     }
   }
 }
