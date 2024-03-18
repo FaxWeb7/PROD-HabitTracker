@@ -1,0 +1,32 @@
+.habits-main{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  &__list-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__title{
+    font-size: 24px;
+  }
+  &__list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media(max-width: 840px){
+    &__title{
+      font-size: 20px;
+    }
+  }
+  @media(max-width: 420px){
+    gap: 30px;
+    &__title{
+      font-size: 18px;
+    }
+    &__list{
+      gap: 12px;
+    }
+  }
+}
