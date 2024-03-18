@@ -1,0 +1,81 @@
+@import "../../../../styles/vars";
+
+.nav{
+  &__list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  &__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    background-color: white;
+    color: black;
+    padding: 10px 14px;
+    border-radius: 5px;
+    &-icon{
+      width: 22px;
+      height: 22px;
+    }
+    &:hover{
+      transition: all .6s ease;
+      transform: scale(1.03);
+    }
+    &.active{
+      background-color: $secondaryColor;
+      color: white;
+      h4 {
+        color: white;
+      }
+    }
+  }
+  &__burger{
+    &-button{
+      display: none;
+    }
+    &-icon{
+      width: 30px;
+      height: 30px;
+      color: $primaryColor;
+    }
+  }
+  @media(max-width: 768px){
+    &__list{
+      gap: 6px;
+    }
+    &__item{
+      padding: 4px 8px;
+      &-icon{
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+  @media(max-width: 576px){
+    &__list{
+      position: absolute;
+      top: 90px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+      min-width: 220px;
+      background-color: white;
+      border-radius: 10px;
+      transition: all .6s ease;
+      transform: translateY(-250px);
+      &.active{
+        transform: translateY(0);
+      }
+    }
+    &__burger{
+      &-button{
+        display: block;
+      }
+    }
+  }
+}
