@@ -1,0 +1,37 @@
+@import '../../../styles/vars';
+
+.button{
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .5s ease;
+  border-radius: 6px;
+  background: linear-gradient(0.6turn, $primaryLightColor, $primaryColor);
+  &__icon{
+    color: white;
+    width: 22px;
+    height: 22px;
+  }
+  &__text{
+    font-size: 15px;
+    color: white;
+  }
+  &:hover{
+    transform: scale(1.01);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25); 
+  }
+  @media(max-width: 1080px){
+    padding: 8px 10px;
+    gap: 4px;
+    &__icon{
+      width: 20px;
+      height: 20px;
+    }
+    &__text{
+      font-size: 14px;
+    }
+  }
+}
