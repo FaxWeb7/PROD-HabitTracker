@@ -18,7 +18,7 @@ export const HeaderNav: FC = () => {
           <li key={index}>
             <Link className={location.pathname == navItem.link ? `${styles['nav__item']} ${styles['active']}` : styles['nav__item']} to={navItem.link} onClick={() => setIsMenuVisible(false)}>
               <navItem.icon className={styles['nav__item-icon']} />
-              <h4>{navItem.title}</h4>
+              <h4 className={styles['nav__item-text']}>{navItem.title}</h4>
             </Link>
           </li>
         ))}

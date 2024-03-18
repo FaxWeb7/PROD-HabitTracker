@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 import { IoIosCalendar } from "react-icons/io";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { IoMdStats } from "react-icons/io";
 import { CiShop } from "react-icons/ci";
 
 interface IHeaderNavList {
@@ -16,7 +16,7 @@ export const HeaderNavList: IHeaderNavList[] = [
         link: "/",
     },
     {
-        icon: MdOutlineSpaceDashboard,
+        icon: IoMdStats,
         title: "Статистика",
         link: "/dashboard",
     },
