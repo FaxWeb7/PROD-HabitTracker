@@ -1,9 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
-import { IUploadData } from '../../models/UploadData/IUploadData'
+import { IUploadData, IUploadDataStore } from '../../models/UploadData/IUploadData'
 import { UploadDataService } from '../../services/UploadDataService'
 
-const initialState: IUploadData = UploadDataService.getUploadData()
+const initialState: IUploadDataStore = {
+  uploadData: UploadDataService.getUploadData()
+}
 
 export const uploadDataSlice = createSlice({
   name: 'uploadData',
@@ -11,10 +13,10 @@ export const uploadDataSlice = createSlice({
   reducers: {
     setUploadData: (state, action: PayloadAction<IUploadData>) => {
       UploadDataService.setUploadData(action.payload)
-      state = action.payload
+      state.uploadData = action.payload
     }
   }
 })
 
 export const { actions: uploadDataActions, reducer: uploadDataReducer } = uploadDataSlice
-export const selectUploadData = (state: RootState) => state.uploadData
+export const selectUploadData = (state: RootState) => state.uploadDataStore

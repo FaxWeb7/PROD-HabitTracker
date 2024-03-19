@@ -5,9 +5,9 @@ import { uploadDataReducer } from './uploadData/uploadData.slice'
 
 export const store = configureStore({
   reducer: {
-    currentDate: currentDateReducer,
-    user: userReducer,
-    uploadData: uploadDataReducer
+    currentDateStore: currentDateReducer,
+    userStore: userReducer,
+    uploadDataStore: uploadDataReducer
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({

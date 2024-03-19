@@ -1,9 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import { DateService } from '../../services/DateService'
+import { ICurrentDateStore } from '../../models/CurrentDate/ICurrentDate'
 
 const initialState: ICurrentDateStore = {
-  value: DateService.getCurrentDate()
+  currentDate: DateService.getCurrentDate()
 }
 
 export const currentDateSlice = createSlice({
@@ -12,10 +13,10 @@ export const currentDateSlice = createSlice({
   reducers: {
     setValue: (state, action: PayloadAction<Date>) => {
       DateService.setCurrentDate(action.payload)
-      state.value = action.payload.toLocaleString()
+      state.currentDate = action.payload.toLocaleString()
     }
   }
 })
 
 export const { actions: currentDateActions, reducer: currentDateReducer } = currentDateSlice
-export const selectCurrentDate = (state: RootState) => state.currentDate
+export const selectCurrentDate = (state: RootState) => state.currentDateStore
