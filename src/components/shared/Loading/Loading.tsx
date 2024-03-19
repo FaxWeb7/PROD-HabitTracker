@@ -7,6 +7,8 @@ interface ILoadingProps {
 
 export const Loading: FC<ILoadingProps> = (props: ILoadingProps) => {
   return (
-    <PulseLoader color="#2E2E2E" size={props.size || 10} />
+    <div className="container">
+      <PulseLoader color="#2E2E2E" size={props.size || 10} />
+    </div>
   )
 }

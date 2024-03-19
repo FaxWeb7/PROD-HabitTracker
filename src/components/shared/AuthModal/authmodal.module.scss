@@ -1,0 +1,60 @@
+.modal{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25vh;
+  &__container{
+    width: auto!important;
+  }
+  &__inner{
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 1280px;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &-title{
+      margin-bottom: 15px;
+    }
+    &-input{
+      min-width: 250px;
+      width: 100%;
+    }
+    &-error{
+      margin-top: -10px;
+      color: rebeccapurple;
+    }
+    &-submit{
+      margin-top: 15px;
+      gap: 10px!important;
+    }
+  }
+  @media(max-width: 540px){
+    &__form{
+      &-title{
+        font-size: 24px;
+      }
+      &-input{
+        font-size: 14px;
+      }
+    }
+  }
+  @media(max-width: 420px){
+    &__form{
+      &-title{
+        font-size: 20px;
+      }
+      &-input{
+        font-size: 12px;
+      }
+    }
+  }
+  @media(max-width: 350px){
+    &__inner{
+      padding: 20px 15px;
+    }
+  }
+}
