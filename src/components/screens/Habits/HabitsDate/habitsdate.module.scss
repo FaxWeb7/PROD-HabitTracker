@@ -1,0 +1,48 @@
+@import '../../../../styles/vars';
+
+.habits-date{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  &__text{
+    font-size: 21px;
+  }
+  &__input{
+    background-color: $secondaryColor;
+    color: $bodyBackgroundColor;
+    border-radius: 5px;
+    align-self: flex-start;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    border: none;;
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+  }
+  &__button{
+    font-size: 14px;
+    margin-top: -10px;
+  }
+  @media(max-width: 900px){
+    &__text{
+      font-size: 19px;
+    }
+  }
+  @media(max-width: 840px){
+    &__text{
+      font-size: 18px;
+    }
+    &__input{
+      font-size: 13px;
+    }
+    &__button{
+      font-size: 13px;
+      padding: 6px 8px;
+    }
+  }
+}
