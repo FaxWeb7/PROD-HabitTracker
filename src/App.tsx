@@ -9,6 +9,7 @@ import { IHabitAction } from './models/UploadData/IHabitAction'
 import { Header } from './components/layout/Header/Header'
 import { Loading } from './components/shared/Loading/Loading'
 import { AuthModal } from './components/shared/AuthModal/AuthModal'
+import dataExample from '../uploadDataExample.json'
 
 interface IAppProps {
   children: ReactNode
@@ -27,7 +28,8 @@ export const App: FC<IAppProps> = ({ children }) => {
       dispatch(currentDateActions.setValue(new Date()))
     }
     if (!Object.keys(uploadData).length){
-      const initialUploadDataVal: IUploadData = { habits: [] as IHabit[], actions: [] as IHabitAction[] }
+      // const initialUploadDataVal: IUploadData = { habits: [] as IHabit[], actions: [] as IHabitAction[] }
+      const initialUploadDataVal: IUploadData = dataExample
       dispatch(uploadDataActions.setUploadData(initialUploadDataVal))
     }
     if (Object.keys(user).length !== 0){

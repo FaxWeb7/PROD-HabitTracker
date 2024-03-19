@@ -1,5 +1,5 @@
 export interface IHabitAction {
     id: number
-    date: Date
+    date: Date | string
     value?: number
 }
