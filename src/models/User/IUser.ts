@@ -7,3 +7,7 @@ export interface IUser {
     maxStreak: number
     prodCoins: number
 }
+
+export interface IUserStore {
+    user: IUser
+}

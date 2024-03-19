@@ -1,6 +1,7 @@
-interface ICurrentDateStore {
-  value: string
+export interface ICurrentDate {
+  currentDate: string
 }
-interface ICurrentDateStorage {
+
+export interface ICurrentDateStore {
   currentDate: string
 }
