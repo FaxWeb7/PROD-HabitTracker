@@ -34,4 +34,14 @@
       font-size: 14px;
     }
   }
+  @media(max-width: 520px){
+    padding: 6px 8px;
+    &__icon{
+      width: 18px;
+      height: 18px;
+    }
+    &__text{
+      font-size: 12px;
+    }
+  }
 }
