@@ -11,7 +11,13 @@ export const HabitsMainSection: FC = () => {
 
   return (
     <div className={styles['habits-main']}>
-      {Object.entries(sortHabits(uploadData.habits)).reverse().map(([period, habitsList], idx) => (
+      {!Object.keys(uploadData.habits).length ? (
+        <div className={styles['habits-main__expect']}>
+          <h3>Привычек нет :(</h3>
+          <h4>Нажмите на кнопку "Новая привычка" чтобы добавить привычку</h4>
+        </div>
+      ) : (
+        Object.entries(sortHabits(uploadData.habits)).reverse().map(([period, habitsList], idx) => (
         habitsList?.length !== 0 && (
           <div className={styles['habits-main__list-wrapper']} key={idx}>
             <h3 className={styles['habits-main__title']}>{`Привычки на ${period === 'monthlyHabits' ? 'месяц' : period === 'weeklyHabits' ? 'неделю' : 'день'}`}</h3>
@@ -24,7 +30,8 @@ export const HabitsMainSection: FC = () => {
             </ul>
           </div>
         )
-      ))}
+      )))
+      }
     </div>
   )
 }
