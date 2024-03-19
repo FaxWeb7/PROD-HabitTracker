@@ -4,6 +4,9 @@ import styles from './habits.module.scss';
 import { HabitsTitle } from './HabitsTitle/HabitsTitle';
 import { HabitsWeekCalendar } from './HabitsWeekCalendar/HabitsWeekCalendar';
 import { HabitsMainSection } from './HabitsMainSection/HabitsMainSection';
+import { HabitsStats } from './HabitsStats/HabitsStats';
+import { HabitsUpload } from './HabitsUpload/HabitsUpload';
+import { HabitsDate } from './HabitsDate/HabitsDate';
 
 export const HabitsScreen: FC = () => {
   useTitle('Привычки')
@@ -18,7 +21,9 @@ export const HabitsScreen: FC = () => {
             <HabitsMainSection />
           </div>
           <aside className={styles['habits__info']}>
-            <h1>stats</h1>
+            <HabitsStats />
+            <HabitsUpload />
+            <HabitsDate />
           </aside>
         </div>
       </div>
