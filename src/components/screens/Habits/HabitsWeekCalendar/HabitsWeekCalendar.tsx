@@ -10,27 +10,27 @@ import styles from './weekcalendar.module.scss'
 export const HabitsWeekCalendar: FC = () => {
   const days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
   const [weekDates, setWeekDates] = useState<string[]>([]);
-  const currentDateState = useSelector(selectCurrentDate)
+  const { currentDate } = useSelector(selectCurrentDate)
   const dispatch = useDispatch()
   
   useEffect(() => {
-    const currentDateString = currentDateState.value.split(', ')[0].split('.')
+    const currentDateString = currentDate.split(', ')[0].split('.')
     const weekData = {
       setWeekDates: setWeekDates,
       days: days,
       currentDate: new Date(Number(currentDateString[2]), Number(currentDateString[1])-1, Number(currentDateString[0]))
     }
     handleWeekChange(weekData);
-  }, [currentDateState.value]);
+  }, [currentDate]);
   
   const handleChangeWeek = (type: string): void => {
-    const currentDateVal: string = currentDateState.value
+    const currentDateVal: string = currentDate
     const parsedDateVal: number = parseInt(currentDateVal.split(', ')[0].split('.')[0], 10)
     handleChangeDate(type === 'next' ? String(parsedDateVal+7) : String(parsedDateVal-7))
   };
   
   const handleChangeDate = (stringItemDate: string): void => {
-    const currentDateVal: string = currentDateState.value
+    const currentDateVal: string = currentDate
     const newCurrentDate: Date = changeDaysInWeek(currentDateVal.split(', ')[0], Number(stringItemDate));
     dispatch(currentDateActions.setValue(newCurrentDate))
   }

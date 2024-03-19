@@ -7,7 +7,7 @@ import { selectUser } from '../../../store/user/user.slice';
 import styles from './header.module.scss'
 
 export const Header: FC = () => {
-  const { name } = useSelector(selectUser)
+  const { user } = useSelector(selectUser)
 
   return (
     <header className='header'>
@@ -15,7 +15,7 @@ export const Header: FC = () => {
         <div className={styles['header__inner']}>
           <HeaderNav />
           <Link className={styles['header__profile']} to={'/profile'}>
-            <h4 className={styles['header__profile-name']}>{name}</h4>
+            <h4 className={styles['header__profile-name']}>{user.name}</h4>
             <img className={styles['header__profile-avatar']} src={`${APP_URL}/images/avatar.png`} alt='avatar' />
           </Link>
         </div>
