@@ -1,4 +1,4 @@
-import { dateWithoutTime, storeFormatDate } from "./ChangeDateFormat";
+import { dateWithoutTime, storeFormatDate } from "../ChangeDateFormat";
 
 export const changeDaysInWeek = (currentDate: string, n: number) => {
   const parts = dateWithoutTime(currentDate).split('-')

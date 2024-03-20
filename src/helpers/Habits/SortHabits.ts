@@ -1,5 +1,5 @@
-import { ISortedHabits } from "../interfaces/interfaces";
-import { IHabit } from "../models/UploadData/IHabit";
+import { ISortedHabits } from "../../interfaces/interfaces";
+import { IHabit } from "../../models/UploadData/IHabit";
 
 export const sortHabits = (habits: IHabit[]): ISortedHabits => {
   const sortedHabits: ISortedHabits = {
