@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { sortHabits } from '../../../../helpers/SortHabits';
-import { IHabit } from '../../../../models/UploadData/IHabit';
-import { HabitItem } from '../HabitItem/HabitItem';
 import { useSelector } from 'react-redux';
 import { selectUploadData } from '../../../../store/uploadData/uploadData.slice';
+import { IHabit } from '../../../../models/UploadData/IHabit';
+import { sortHabits } from '../../../../helpers/Habits/SortHabits';
+import { HabitItem } from '../HabitItem/HabitItem';
 import styles from './habitsmainsections.module.scss'
 
 export const HabitsMainSection: FC = () => {

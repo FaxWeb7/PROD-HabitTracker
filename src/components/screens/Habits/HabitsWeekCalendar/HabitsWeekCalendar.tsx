@@ -1,37 +1,35 @@
 import { FC, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { GrFormPrevious } from "react-icons/gr";
 import { GrFormNext } from "react-icons/gr";
-import { handleWeekChange } from '../../../../helpers/HandleWeekChange';
-import { useDispatch, useSelector } from 'react-redux';
 import { currentDateActions, selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { changeDaysInWeek } from '../../../../helpers/ChangeDateInWeek';
+import { handleWeekChange } from '../../../../helpers/Habits/HandleWeekChange';
+import { changeDaysInWeek } from '../../../../helpers/Habits/ChangeDateInWeek';
+import { dateWithoutTime } from '../../../../helpers/ChangeDateFormat';
 import styles from './weekcalendar.module.scss'
 
 export const HabitsWeekCalendar: FC = () => {
-  const days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+  const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
   const [weekDates, setWeekDates] = useState<string[]>([]);
   const { currentDate } = useSelector(selectCurrentDate)
   const dispatch = useDispatch()
   
   useEffect(() => {
-    const currentDateString = currentDate.split(', ')[0].split('.')
     const weekData = {
       setWeekDates: setWeekDates,
       days: days,
-      currentDate: new Date(Number(currentDateString[2]), Number(currentDateString[1])-1, Number(currentDateString[0]))
+      currentDate: new Date(currentDate)
     }
     handleWeekChange(weekData);
   }, [currentDate]);
   
   const handleChangeWeek = (type: string): void => {
-    const currentDateVal: string = currentDate
-    const parsedDateVal: number = parseInt(currentDateVal.split(', ')[0].split('.')[0], 10)
-    handleChangeDate(type === 'next' ? String(parsedDateVal+7) : String(parsedDateVal-7))
+    const parsedDay: number = Number(dateWithoutTime(currentDate).split('-')[2])
+    handleChangeDate(type === 'next' ? String(parsedDay+7) : String(parsedDay-7))
   };
   
   const handleChangeDate = (stringItemDate: string): void => {
-    const currentDateVal: string = currentDate
-    const newCurrentDate: Date = changeDaysInWeek(currentDateVal.split(', ')[0], Number(stringItemDate));
+    const newCurrentDate: string = changeDaysInWeek(dateWithoutTime(currentDate), Number(stringItemDate));
     dispatch(currentDateActions.setValue(newCurrentDate))
   }
 
