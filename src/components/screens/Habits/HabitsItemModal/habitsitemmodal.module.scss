@@ -1,0 +1,96 @@
+.habits-modal{
+  box-shadow: 10px 10px 10px 10000px rgba(0, 0, 0, 0.25);
+  opacity: 1!important;
+  position: absolute;
+  left: 35vw;
+  top: 10vh;
+  z-index: 100;
+  width: 450px;
+  max-width: 840px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  &__close{
+    align-self: flex-end;
+    background-color: #fff;
+    &-icon{
+      color: #2e2e2e;
+      font-size: 32px;
+      transition: all .5s ease;
+      &::hover{
+        transform: scale(1.03);
+      }
+    }
+  }
+  &__item{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    &-title{
+      font-weight: 600;
+    }
+    &-value{
+      font-weight: 400;
+    }
+  }
+  &__checkbox{
+    &-container{
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+  }
+  &__buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    &-container{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+  @media(max-width: 1200px){
+    left: 29vw;
+  }
+  @media(max-width: 992px){
+    left: 26vw;
+  }
+  @media(max-width: 840px){
+    left: 20vw;
+    padding: 20px;
+    &__close{
+      &-icon{
+        font-size: 30px;
+      }
+    }
+    &__item{
+      &-title{
+        font-weight: 600;
+        font-size: 16px;
+      }
+      &-value{
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+  @media(max-width: 670px){
+    width: 80vw;
+    left: 10vw;
+  }
+  @media(max-width: 556px){
+    &__close{
+      &-icon{
+        font-size: 28px;
+      }
+    }
+    width: 90vw;
+    left: 5vw;
+  }
+}
