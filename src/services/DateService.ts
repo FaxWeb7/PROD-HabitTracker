@@ -1,10 +1,9 @@
 export class DateService {
     private static currentDate: string = localStorage.getItem("currentDate") || ''
 
-    public static setCurrentDate(newCurrentDate: Date): void {
-        const dateString = newCurrentDate.toLocaleString();
-        localStorage.setItem('currentDate', dateString);
-        this.currentDate = dateString
+    public static setCurrentDate(newCurrentDate: string): void {
+        localStorage.setItem('currentDate', newCurrentDate);
+        this.currentDate = newCurrentDate
     }
     
     public static getCurrentDate(): string {
