@@ -5,5 +5,5 @@ export interface IHabit {
     addDate: string
     period: string
     targetValue?: number
-    stoppedDate?: Date
+    stoppedDate?: string
 }
