@@ -2,9 +2,11 @@ import { FaMedal } from "react-icons/fa";
 import { BsFillLightningFill } from "react-icons/bs";
 import { FaLevelUpAlt } from "react-icons/fa";
 import { FaCoins } from "react-icons/fa6";
-import { IUserStats } from "../../../../interfaces/interfaces";
+import { BsPatchCheckFill } from "react-icons/bs";
+import { MdDataExploration } from "react-icons/md";
+import { IUserStats } from "../../../interfaces/interfaces";
 
-export const HabitStatsList: IUserStats[][] = [
+export const dashboardStatsList: IUserStats[][] = [
   [
     {
       icon: FaMedal,
@@ -23,6 +25,16 @@ export const HabitStatsList: IUserStats[][] = [
     {
       icon: FaCoins,
       text: 'ProdCoin',
+    }
+  ],
+  [
+    {
+      icon: BsPatchCheckFill,
+      text: 'Макс. рекорд',
+    },
+    {
+      icon: MdDataExploration,
+      text: 'Макс. опыт',
     }
   ]
 ]
