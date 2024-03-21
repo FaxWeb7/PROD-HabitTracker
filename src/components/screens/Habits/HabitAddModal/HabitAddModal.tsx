@@ -7,8 +7,9 @@ import { VscDiffAdded } from "react-icons/vsc";
 import { selectUser } from '../../../../store/user/user.slice';
 import { selectUploadData, uploadDataActions } from '../../../../store/uploadData/uploadData.slice';
 import { selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { getMaxHabitId } from '../../../../helpers/Habits/GetMaxHabitId';
 import { IHabit } from '../../../../models/UploadData/IHabit';
+import { IAddHabitInputs } from '../../../../interfaces/interfaces';
+import { getMaxHabitId } from '../../../../helpers/Habits/GetMaxHabitId';
 import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
 import { createGroupedOptions, IGroupedOption, IOption } from './CreateGroupedOptions';
 import styles from './habitaddmodal.module.scss';
@@ -17,31 +18,20 @@ interface IHabitAddModalProps {
   setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-interface Inputs {
-  title: string
-  category: string
-  period: string
-  countable: string
-  targetValue?: string
-}
+
 
 export const HabitAddModal: FC<IHabitAddModalProps> = ({ setIsModalShow }: IHabitAddModalProps) => {
+  const { register, handleSubmit, formState: { errors }, getValues } = useForm<IAddHabitInputs>()
   const { user } = useSelector(selectUser)
   const { currentDate } = useSelector(selectCurrentDate)
   const { uploadData } = useSelector(selectUploadData)
-  const dispatch = useDispatch()
   const groupedOptions = createGroupedOptions(user.level)
   const [selectedOption, setSelectedOption] = useState<SingleValue<IOption>>(groupedOptions[1].options[0])
   const [isCountable, setIsCountable] = useState<boolean>(false) 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    getValues
-  } = useForm<Inputs>()
+  const dispatch = useDispatch()
 
 
-  const handleAddHabit: SubmitHandler<Inputs> = (data) => {
+  const handleAddHabit: SubmitHandler<IAddHabitInputs> = (data) => {
     let newHabit: IHabit = {
       id: getMaxHabitId([...uploadData.habits])+1,
       title: data.title,
@@ -96,7 +86,7 @@ export const HabitAddModal: FC<IHabitAddModalProps> = ({ setIsModalShow }: IHabi
         />
       </div>
       {selectedOption?.value === 'self' ? (
-        <form className={styles['habits-modal__form']} onSubmit={handleSubmit(handleAddHabit)} onChange={() => handleChangeForm()}>
+        <form role='form' className={styles['habits-modal__form']} onSubmit={handleSubmit(handleAddHabit)} onChange={() => handleChangeForm()}>
           <div className={styles['habits-modal__item']}>
             <label htmlFor="title-input" className={styles['habits-modal__item-title']}>Название:</label>
             <input id='title-input' autoComplete='title' className={styles['habits-modal__item-input']} {...register("title", { required: true })} />

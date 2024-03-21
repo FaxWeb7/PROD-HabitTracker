@@ -20,8 +20,8 @@ export const HabitsDate: FC = () => {
   return (
     <div className={styles['habits-date']}>
       <h2 className={styles['habits-date__text']}>Установка текущей даты</h2>
-      <input id='file-date' type='datetime-local' autoComplete='date' onChange={handleDateChange} className={styles['habits-date__input']} />
-      <PrimaryButton text='Готово' onClick={handleDateSubmit} className={styles['habits-date__button']} />
+      <input id='date-input' type='datetime-local' name='date-input' autoComplete='date' onChange={handleDateChange} className={styles['habits-date__input']} />
+      <PrimaryButton text='Готово' type='button' onClick={handleDateSubmit} className={styles['habits-date__button']} />
     </div>
   )
 }

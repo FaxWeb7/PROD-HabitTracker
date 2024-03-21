@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { RootState } from '../store'
 import { IUploadData, IUploadDataStore } from '../../models/UploadData/IUploadData'
 import { IHabitAction } from '../../models/UploadData/IHabitAction'
 import { UploadDataService } from '../../services/UploadDataService'
-import { RootState } from '../store'
 
 const initialState: IUploadDataStore = {
   uploadData: UploadDataService.getUploadData()

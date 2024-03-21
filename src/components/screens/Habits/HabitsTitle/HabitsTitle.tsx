@@ -19,7 +19,7 @@ export const HabitsTitle: FC = () => {
         <div className={styles['habits-title__info']}>
           <h1 className={styles['habits-title__info-title']}>{convertDate(currentDate)}</h1>
         </div>
-        <PrimaryButton icon={VscDiffAdded} text='Новая привычка' onClick={() => setIsShow(!isShow)} />
+        <PrimaryButton icon={VscDiffAdded} type='button' text='Новая привычка' onClick={() => setIsShow(!isShow)} />
       </div>
     </div>
   )

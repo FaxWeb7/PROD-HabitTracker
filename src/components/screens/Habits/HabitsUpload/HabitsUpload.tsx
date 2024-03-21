@@ -1,9 +1,9 @@
 import { ChangeEvent, FC, useState } from 'react';
-import styles from './habitsupload.module.scss'
-import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
-import { IUploadData } from '../../../../models/UploadData/IUploadData';
 import { useDispatch } from 'react-redux';
 import { uploadDataActions } from '../../../../store/uploadData/uploadData.slice';
+import { IUploadData } from '../../../../models/UploadData/IUploadData';
+import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
+import styles from './habitsupload.module.scss'
 
 export const HabitsUpload: FC = () => {
   const [fileData, setFileData] = useState<IUploadData>({} as IUploadData)
@@ -33,9 +33,9 @@ export const HabitsUpload: FC = () => {
   return (
     <div className={styles['habits-upload']}>
       <h2 className={styles['habits-upload__text']}>Загрузка json данных</h2>
-      <input id='file-upload' type='file' autoComplete='json' onChange={handleFileChange} className={styles['habits-upload__input']} />
-      <label htmlFor="file-upload" className={styles['habits-upload__custom']}>Выбрать файл</label>
-      <PrimaryButton text='Загрузить' onClick={handleFileSubmit} className={styles['habits-upload__button']} />
+      <input id='file-upload' name='file-upload' type='file' autoComplete='json' onChange={handleFileChange} className={styles['habits-upload__input']} />
+      <label htmlFor='file-upload' className={styles['habits-upload__custom']}>Выбрать файл</label>
+      <PrimaryButton text='Загрузить' type='button' onClick={handleFileSubmit} className={styles['habits-upload__button']} />
     </div>
   )
 }

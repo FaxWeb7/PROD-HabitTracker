@@ -1,22 +1,22 @@
 import { FC, useLayoutEffect, useState } from 'react';
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useDispatch, useSelector } from 'react-redux';
 import { TfiSave } from "react-icons/tfi";
 import { RiEyeOffLine } from "react-icons/ri";
 import { FiTrash2 } from "react-icons/fi";
-import { IHabit } from '../../../../models/UploadData/IHabit';
-import { convertDate } from '../../../../helpers/ConvertDate';
-import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectUploadData, uploadDataActions } from '../../../../store/uploadData/uploadData.slice';
-import { removeTodayActionById } from '../../../../helpers/Habits/RemoveTodayActionById';
-import { IHabitAction } from '../../../../models/UploadData/IHabitAction';
-import { getTodayActionById } from '../../../../helpers/Habits/GetTodayActionById';
 import { selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { getPeriodActionsById } from '../../../../helpers/Habits/GetPeriodActionsById';
-import { countWeekActionsById } from '../../../../helpers/Habits/CountWeekActionsById';
-import { addStopDateHabitById } from '../../../../helpers/Habits/AddStopDateHabitById';
-import { removeHabitById } from '../../../../helpers/Habits/RemoveHabitById';
-import { removeActionsById } from '../../../../helpers/Habits/RemoveActionsById';
+import { IHabit } from '../../../../models/UploadData/IHabit';
+import { IHabitAction } from '../../../../models/UploadData/IHabitAction';
+import { convertDate } from '../../../../helpers/ConvertDate';
+import { removeTodayActionById } from './helpers/RemoveTodayActionById';
+import { getTodayActionById } from './helpers/GetTodayActionById';
+import { getPeriodActionsById } from './helpers/GetPeriodActionsById';
+import { countPeriodActionsById } from './helpers/CountPeriodActionsById';
+import { addStopDateHabitById } from './helpers/AddStopDateHabitById';
+import { removeHabitById } from './helpers/RemoveHabitById';
+import { removeActionsById } from './helpers/RemoveActionsById';
+import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
 import styles from './habitsitemmodal.module.scss'
 
 interface HabitsItemModalProps {
@@ -49,7 +49,7 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
         period: (habit.period === 'weekly' ? 7 : 30)
       }
       if (habit.targetValue){
-        const actionSum = countWeekActionsById(habitHelperData)
+        const actionSum = countPeriodActionsById(habitHelperData)
         if (actionSum !== 0){
           setInputSum(actionSum)
         }
@@ -63,7 +63,6 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
   const handleSaveHabit = () => {
     const newActions = removeTodayActionById([...uploadData.actions], habit.id, currentDate)
     dispatch(uploadDataActions.setUploadData({habits: uploadData.habits, actions: newActions }))
-
     if (inputValue != ''){
       const newAction = {id: habit.id, date: currentDate, value: Number(inputValue)} 
       dispatch(uploadDataActions.addAction(newAction))
@@ -89,7 +88,7 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
   
   return (
     <div className={styles['habits-modal']}>
-      <button className={styles['habits-modal__close']} onClick={() => setIsModalShow(false)}>
+      <button className={styles['habits-modal__close']} type='button' onClick={() => setIsModalShow(false)}>
         <IoIosCloseCircleOutline className={styles['habits-modal__close-icon']} />
       </button>
       <div className={styles['habits-modal__item']}>
@@ -119,22 +118,20 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
         </div>
       )}
       <div className={styles['habits-modal__item']}>
-        <h4 className={styles['habits-modal__item-title']}>
-          {habit.targetValue ? 'Установить выполнение за сегодня:' : 'Установить выполнение:'}
-        </h4>
+        <h4 className={styles['habits-modal__item-title']}>{habit.targetValue ? 'Установить выполнение за сегодня:' : 'Установить выполнение:'}</h4>
         {habit.targetValue ? (
-          <input type='text' value={inputValue} name="modal-input" autoComplete='text' className={styles['habits-modal__item-input']} onChange={(e) => setInputValue(e.target.value)}/>
+          <input type='text' value={inputValue} name="modal-input" id='modal-input' autoComplete='text' className={styles['habits-modal__item-input']} onChange={(e) => setInputValue(e.target.value)}/>
         ) : (
           <div className={styles['habits-modal__checkbox-container']}>
-            <input type="checkbox" checked={isChecked} name="modal-checkbox" autoComplete='checkbox' className={styles['habits-modal__checkbox-input']} onChange={() => {}} onClick={() => setIsChecked(!isChecked)} />
+            <input type="checkbox" checked={isChecked} name="modal-checkbox" id='modal-checkbox' autoComplete='checkbox' className={styles['habits-modal__checkbox-input']} onChange={() => {}} onClick={() => setIsChecked(!isChecked)} />
             <h4 className={styles['habits-modal__item-value']}>{isChecked ? 'Выполнено' : 'Не выполнено'}</h4>
           </div>
         )}
       </div>
       <div className={styles['habits-modal__buttons']}>
-          <PrimaryButton text='Сохранить' icon={TfiSave} onClick={handleSaveHabit} />
-          <PrimaryButton text='Перестать трекать' icon={RiEyeOffLine} onClick={handleStopHabit} />
-        <PrimaryButton text='Перестать трекать и удалить историю' icon={FiTrash2} onClick={handleRemoveHabit} />
+        <PrimaryButton text='Сохранить' type='button' icon={TfiSave} onClick={handleSaveHabit} />
+        <PrimaryButton text='Перестать трекать' type='button' icon={RiEyeOffLine} onClick={handleStopHabit} />
+        <PrimaryButton text='Перестать трекать и удалить историю' type='button' icon={FiTrash2} onClick={handleRemoveHabit} />
       </div>
     </div>
   )

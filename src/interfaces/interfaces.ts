@@ -13,3 +13,16 @@ export interface IHabitHelper {
   currentDate: string
   period: number
 }
+
+export interface IAuthFormInputs {
+  name: string
+  color: string
+}
+
+export interface IAddHabitInputs {
+  title: string
+  category: string
+  period: string
+  countable: string
+  targetValue?: string
+}

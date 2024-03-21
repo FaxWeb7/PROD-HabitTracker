@@ -8,8 +8,9 @@ import { changeDaysInWeek } from '../../../../helpers/Habits/ChangeDateInWeek';
 import { dateWithoutTime } from '../../../../helpers/ChangeDateFormat';
 import styles from './weekcalendar.module.scss'
 
+const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+
 export const HabitsWeekCalendar: FC = () => {
-  const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
   const [weekDates, setWeekDates] = useState<string[]>([]);
   const { currentDate } = useSelector(selectCurrentDate)
   const dispatch = useDispatch()
@@ -39,7 +40,7 @@ export const HabitsWeekCalendar: FC = () => {
       <ul className={styles['week__list']}>
         {days.map((day, index) => (
           <li className={styles['week__list-item']} key={index}>
-            <button className={styles['week__item']} onClick={() => handleChangeDate(weekDates[index])}>
+            <button className={styles['week__item']} type='button' onClick={() => handleChangeDate(weekDates[index])}>
               <p className={styles['week__item-day']}>{day}</p>
               <h4 className={styles['week__item-date']}>{weekDates[index]}</h4>
             </button>
