@@ -1,3 +1,4 @@
+import { IconType } from "react-icons"
 import { IHabit } from "../models/UploadData/IHabit"
 import { IHabitAction } from "../models/UploadData/IHabitAction"
 
@@ -25,4 +26,9 @@ export interface IAddHabitInputs {
   period: string
   countable: string
   targetValue?: string
+}
+
+export interface IUserStats {
+  icon: IconType
+  text: string
 }
