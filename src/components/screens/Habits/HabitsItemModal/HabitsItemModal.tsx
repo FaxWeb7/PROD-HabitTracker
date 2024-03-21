@@ -12,8 +12,11 @@ import { removeTodayActionById } from '../../../../helpers/Habits/RemoveTodayAct
 import { IHabitAction } from '../../../../models/UploadData/IHabitAction';
 import { getTodayActionById } from '../../../../helpers/Habits/GetTodayActionById';
 import { selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { getWeekActionsById } from '../../../../helpers/Habits/GetWeekActionsById';
+import { getPeriodActionsById } from '../../../../helpers/Habits/GetPeriodActionsById';
 import { countWeekActionsById } from '../../../../helpers/Habits/CountWeekActionsById';
+import { addStopDateHabitById } from '../../../../helpers/Habits/AddStopDateHabitById';
+import { removeHabitById } from '../../../../helpers/Habits/RemoveHabitById';
+import { removeActionsById } from '../../../../helpers/Habits/RemoveActionsById';
 import styles from './habitsitemmodal.module.scss'
 
 interface HabitsItemModalProps {
@@ -47,7 +50,7 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
         if (actionSum !== 0){
           setInputSum(actionSum)
         }
-      } else if (getWeekActionsById(habitHelperData)) {
+      } else if (getPeriodActionsById(habitHelperData)) {
         setIsChecked(true)
       }
     }
@@ -67,13 +70,18 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
     }
     setIsModalShow(false)
   }
-
+  
   const handleStopHabit = () => {
-    console.log('stop')
+    const newHabits = addStopDateHabitById([...uploadData.habits], habit.id, currentDate)
+    dispatch(uploadDataActions.setUploadData({habits: newHabits, actions: [...uploadData.actions]}))
+    setIsModalShow(false)
   }
-
+  
   const handleRemoveHabit = () => {
-    console.log('remove')
+    const newHabits = removeHabitById([...uploadData.habits], habit.id)
+    const newActions = removeActionsById([...uploadData.actions], habit.id)
+    dispatch(uploadDataActions.setUploadData({habits: newHabits, actions: newActions}))
+    setIsModalShow(false)
   }
   
   return (
