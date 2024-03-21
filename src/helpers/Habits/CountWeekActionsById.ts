@@ -3,7 +3,7 @@ import { IHabitHelper } from "../../interfaces/interfaces";
 export const countWeekActionsById = ({actions, habit, currentDate, period}: IHabitHelper)  => {
   const curDate = new Date(currentDate)
   let nextWeekAction = new Date(habit.addDate)
-  while (nextWeekAction < curDate){
+  while (nextWeekAction <= curDate){
     nextWeekAction = new Date(nextWeekAction.getTime() + period * 24 * 60 * 60 * 1000);
   }
   const prevWeekDate = new Date(nextWeekAction.getTime() - period * 24 * 60 * 60 * 1000);

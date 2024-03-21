@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useLayoutEffect, useState } from 'react';
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { TfiSave } from "react-icons/tfi";
 import { RiEyeOffLine } from "react-icons/ri";
@@ -32,10 +32,13 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
   const { currentDate } = useSelector(selectCurrentDate)
   const dispatch = useDispatch()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const dailyAction: IHabitAction = getTodayActionById([...uploadData.actions], habit.id, currentDate)
     if (Object.keys(dailyAction).length !== 0) {
-      if (dailyAction.value) setInputValue(String(dailyAction.value))
+      if (dailyAction.value) {
+        setInputSum(dailyAction.value)
+        setInputValue(String(dailyAction.value))
+      }
       else setIsChecked(true)
     }
     if (habit.period === 'weekly' || habit.period == 'monthly'){
