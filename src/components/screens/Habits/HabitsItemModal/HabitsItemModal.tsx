@@ -129,10 +129,8 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
         )}
       </div>
       <div className={styles['habits-modal__buttons']}>
-        <div className={styles['habits-modal__buttons-container']}>
           <PrimaryButton text='Сохранить' icon={TfiSave} onClick={handleSaveHabit} />
           <PrimaryButton text='Перестать трекать' icon={RiEyeOffLine} onClick={handleStopHabit} />
-        </div>
         <PrimaryButton text='Перестать трекать и удалить историю' icon={FiTrash2} onClick={handleRemoveHabit} />
       </div>
     </div>
