@@ -1,16 +1,9 @@
 .dashboard{
   &__inner{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  @media(max-width: 1096px){
-    &__inner{
-      flex-direction: column-reverse;
-      align-items: stretch;
-      justify-content: flex-start;
-      gap: 15px;
-    }
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 20px;
   }
 }

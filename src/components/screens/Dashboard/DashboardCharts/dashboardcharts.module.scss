@@ -1,0 +1,56 @@
+.charts{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  &__item{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 610px;
+    width: 50%;
+    &-title{
+      margin-bottom: -40px;
+      font-size: 26px;
+    }
+  }
+  tspan{
+    font-size: 9px;
+  }
+  @media(max-width: 1200px){
+    &__item{
+      &-title{
+        font-size: 22px;
+      }
+    }
+  }
+  @media(max-width: 1100px){
+    &__item{
+      &-title{
+        font-size: 21px;
+        margin-bottom: -30px;
+      }
+    }
+  }
+  @media(max-width: 968px){
+    flex-direction: column;
+    align-items: center;
+    &__item{
+      width: 70%;
+      &-title{
+        margin-bottom: -15px;
+      }
+    }
+  }
+  @media(max-width: 690px){
+    &__item{
+      width: 100%;
+    }
+  }
+  @media(max-width: 480px){
+    &__item{
+      &-title{
+        margin-bottom: 0;
+      }
+    }
+  }
+}

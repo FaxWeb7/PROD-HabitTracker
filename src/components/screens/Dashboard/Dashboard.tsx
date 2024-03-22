@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTitle } from '../../../hooks/useTitle';
 import { UserStats } from '../../shared/UserStats/UserStats';
-import { DashboardChart } from './DashboardChart/DashboardChart';
+import { DashboardCharts } from './DashboardCharts/DashboardCharts';
 import { dashboardStatsList } from './DashboardStatsList';
 import styles from './dashboard.module.scss';
 
@@ -12,8 +12,8 @@ export const Dashboard: FC = () => {
     <div className={styles.dashboard}>
       <div className="container">
         <div className={styles['dashboard__inner']}>
-          <DashboardChart />
           <UserStats statsList={dashboardStatsList} />
+          <DashboardCharts />
         </div>
       </div>
     </div>
