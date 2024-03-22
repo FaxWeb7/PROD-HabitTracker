@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { uploadDataActions } from '../../../../store/uploadData/uploadData.slice';
-import { IUploadData } from '../../../../models/UploadData/IUploadData';
-import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
+import { uploadDataActions } from '@/store/uploadData/uploadData.slice';
+import { IUploadData } from '@/models/UploadData/IUploadData';
+import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
 import styles from './habitsupload.module.scss'
 
 export const HabitsUpload: FC = () => {

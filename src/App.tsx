@@ -14,7 +14,6 @@ interface IAppProps {
   children: ReactNode
 }
 
-
 export const App: FC<IAppProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isAuth, setIsAuth] = useState<boolean>(false)

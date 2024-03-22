@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { IoSend } from 'react-icons/io5';
-import { userActions } from '../../../store/user/user.slice';
-import { IUser } from '../../../models/User/IUser';
-import { IAuthFormInputs } from '../../../interfaces/interfaces';
+import { userActions } from '@/store/user/user.slice';
+import { IUser } from '@/models/User/IUser';
+import { IAuthFormInputs } from '@/interfaces/interfaces';
 import { PrimaryButton } from '../PrimaryButton/PrimaryButton';
 import styles from './authmodal.module.scss';
 

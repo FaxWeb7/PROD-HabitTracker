@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { VscDiffAdded } from "react-icons/vsc";
-import { selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { useOutside } from '../../../../hooks/useOutisde';
-import { convertDate } from '../../../../helpers/ConvertDate';
-import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
+import { selectCurrentDate } from '@/store/currentDate/currentDate.slice';
+import { useOutside } from '@/hooks/useOutisde';
+import { convertDate } from '@/helpers/ConvertDate';
+import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
 import { HabitAddModal } from '../HabitAddModal/HabitAddModal';
 import styles from './habitstitle.module.scss';
 

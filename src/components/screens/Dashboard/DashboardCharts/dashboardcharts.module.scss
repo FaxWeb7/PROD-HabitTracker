@@ -8,6 +8,10 @@
     padding: 20px;
     width: 610px;
     width: 50%;
+    div{
+      width: 100%!important;
+      height: 100%!important;
+    }
     &-title{
       margin-bottom: -40px;
       font-size: 26px;
@@ -50,6 +54,9 @@
     &__item{
       &-title{
         margin-bottom: 0;
+      }
+      div{
+        transform: scale(1.2);
       }
     }
   }

@@ -4,13 +4,13 @@ import Select, { SingleValue } from 'react-select'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { VscDiffAdded } from "react-icons/vsc";
-import { selectUser } from '../../../../store/user/user.slice';
-import { selectUploadData, uploadDataActions } from '../../../../store/uploadData/uploadData.slice';
-import { selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { IHabit } from '../../../../models/UploadData/IHabit';
-import { IAddHabitInputs } from '../../../../interfaces/interfaces';
-import { getMaxHabitId } from '../../../../helpers/Habits/GetMaxHabitId';
-import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
+import { selectUser } from '@/store/user/user.slice';
+import { selectUploadData, uploadDataActions } from '@/store/uploadData/uploadData.slice';
+import { selectCurrentDate } from '@/store/currentDate/currentDate.slice';
+import { IHabit } from '@/models/UploadData/IHabit';
+import { IAddHabitInputs } from '@/interfaces/interfaces';
+import { getMaxHabitId } from '@/helpers/Habits/GetMaxHabitId';
+import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
 import { createGroupedOptions, IGroupedOption, IOption } from './CreateGroupedOptions';
 import styles from './habitaddmodal.module.scss';
 

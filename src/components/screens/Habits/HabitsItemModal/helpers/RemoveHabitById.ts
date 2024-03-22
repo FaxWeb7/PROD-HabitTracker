@@ -1,4 +1,4 @@
-import { IHabit } from "../../../../../models/UploadData/IHabit";
+import { IHabit } from "@/models/UploadData/IHabit";
 
 export const removeHabitById = (habits: IHabit[], id: number) => {
   const index = habits.findIndex(habit => id === habit.id)

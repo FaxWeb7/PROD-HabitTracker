@@ -1,4 +1,4 @@
-import { IHabitHelper } from "../../../../../interfaces/interfaces";
+import { IHabitHelper } from "@/interfaces/interfaces";
 
 export const countPeriodActionsById = ({actions, habit, currentDate, period}: IHabitHelper)  => {
   const curDate = new Date(currentDate)

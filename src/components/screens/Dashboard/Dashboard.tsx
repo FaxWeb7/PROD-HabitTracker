@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { useTitle } from '../../../hooks/useTitle';
-import { UserStats } from '../../shared/UserStats/UserStats';
+import { useTitle } from '@/hooks/useTitle';
+import { UserStats } from '@/components/shared/UserStats/UserStats';
 import { DashboardCharts } from './DashboardCharts/DashboardCharts';
 import { dashboardStatsList } from './DashboardStatsList';
 import styles from './dashboard.module.scss';

@@ -4,7 +4,7 @@ import { FaLevelUpAlt } from "react-icons/fa";
 import { FaCoins } from "react-icons/fa6";
 import { BsPatchCheckFill } from "react-icons/bs";
 import { MdDataExploration } from "react-icons/md";
-import { IUserStats } from "../../../interfaces/interfaces";
+import { IUserStats } from "@/interfaces/interfaces";
 
 export const dashboardStatsList: IUserStats[][] = [
   [

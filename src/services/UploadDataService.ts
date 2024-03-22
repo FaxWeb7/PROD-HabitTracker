@@ -1,4 +1,4 @@
-import { IUploadData } from "../models/UploadData/IUploadData";
+import { IUploadData } from "@/models/UploadData/IUploadData";
 
 export class UploadDataService {
     private static uploadData: IUploadData = JSON.parse(localStorage.getItem("uploadData") || "{}")

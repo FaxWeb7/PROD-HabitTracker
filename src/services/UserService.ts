@@ -1,4 +1,4 @@
-import { IUser } from "../models/User/IUser";
+import { IUser } from "@/models/User/IUser";
 
 export class UserService {
     private static user: IUser = JSON.parse(localStorage.getItem("user") || "{}");

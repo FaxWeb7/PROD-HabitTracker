@@ -1,4 +1,4 @@
-import { IHabit } from "../../../../../models/UploadData/IHabit";
+import { IHabit } from "@/models/UploadData/IHabit";
 
 export const addStopDateHabitById = (habits: IHabit[], id: number, currentDate: string) => {
   const index = habits.findIndex(habit => id === habit.id)

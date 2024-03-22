@@ -1,7 +1,7 @@
-import { IHabit } from "../../../../models/UploadData/IHabit"
-import { IHabitAction } from "../../../../models/UploadData/IHabitAction"
-import { IChartItem } from "../../../../interfaces/interfaces"
-import { dateWithoutTime } from "../../../../helpers/ChangeDateFormat"
+import { IHabit } from "@/models/UploadData/IHabit"
+import { IHabitAction } from "@/models/UploadData/IHabitAction"
+import { IChartItem } from "@/interfaces/interfaces"
+import { dateWithoutTime } from "@/helpers/ChangeDateFormat"
 
 export const generateCompletedHabitsInfo = (actions: IHabitAction[]): IChartItem => {
   if (!actions.length) return {axisX: [1], axisY: [0]}

@@ -1,8 +1,8 @@
 import { FC, useLayoutEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LineChart } from '@mui/x-charts/LineChart';
-import { selectUploadData } from '../../../../store/uploadData/uploadData.slice';
-import { IChartItem } from '../../../../interfaces/interfaces';
+import { selectUploadData } from '@/store/uploadData/uploadData.slice';
+import { IChartItem } from '@/interfaces/interfaces';
 import { generateAddedHabitsInfo, generateCompletedHabitsInfo } from './GenerateChartsInfo';
 import styles from './dashboardcharts.module.scss'
 

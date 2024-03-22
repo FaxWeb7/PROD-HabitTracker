@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { CgMenu } from "react-icons/cg";
-import { useOutside } from '../../../../hooks/useOutisde';
+import { useOutside } from '@/hooks/useOutisde';
 import { HeaderNavList } from './HeaderNavList';
 import styles from './headernav.module.scss';
 

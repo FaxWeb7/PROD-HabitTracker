@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../../store/user/user.slice';
-import { IUserStats } from '../../../interfaces/interfaces';
+import { selectUser } from '@/store/user/user.slice';
+import { IUserStats } from '@/interfaces/interfaces';
 import { getStatsElByText } from './GetStatsElByText';
 import styles from './userstats.module.scss'
 

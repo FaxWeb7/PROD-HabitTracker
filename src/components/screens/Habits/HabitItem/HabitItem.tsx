@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { CiCircleMore } from "react-icons/ci";
-import { IHabit } from '../../../../models/UploadData/IHabit';
-import { useOutside } from '../../../../hooks/useOutisde';
+import { IHabit } from '@/models/UploadData/IHabit';
+import { useOutside } from '@/hooks/useOutisde';
 import { HabitsItemModal } from '../HabitsItemModal/HabitsItemModal';
 import styles from './habititem.module.scss';
 

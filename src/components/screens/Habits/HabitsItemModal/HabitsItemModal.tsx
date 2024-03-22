@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TfiSave } from "react-icons/tfi";
 import { RiEyeOffLine } from "react-icons/ri";
 import { FiTrash2 } from "react-icons/fi";
-import { selectUploadData, uploadDataActions } from '../../../../store/uploadData/uploadData.slice';
-import { selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { IHabit } from '../../../../models/UploadData/IHabit';
-import { IHabitAction } from '../../../../models/UploadData/IHabitAction';
-import { convertDate } from '../../../../helpers/ConvertDate';
+import { selectUploadData, uploadDataActions } from '@/store/uploadData/uploadData.slice';
+import { selectCurrentDate } from '@/store/currentDate/currentDate.slice';
+import { IHabit } from '@/models/UploadData/IHabit';
+import { IHabitAction } from '@/models/UploadData/IHabitAction';
+import { convertDate } from '@/helpers/ConvertDate';
 import { removeTodayActionById } from './helpers/RemoveTodayActionById';
 import { getTodayActionById } from './helpers/GetTodayActionById';
 import { getPeriodActionsById } from './helpers/GetPeriodActionsById';
@@ -16,7 +16,7 @@ import { countPeriodActionsById } from './helpers/CountPeriodActionsById';
 import { addStopDateHabitById } from './helpers/AddStopDateHabitById';
 import { removeHabitById } from './helpers/RemoveHabitById';
 import { removeActionsById } from './helpers/RemoveActionsById';
-import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
+import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
 import styles from './habitsitemmodal.module.scss'
 
 interface HabitsItemModalProps {

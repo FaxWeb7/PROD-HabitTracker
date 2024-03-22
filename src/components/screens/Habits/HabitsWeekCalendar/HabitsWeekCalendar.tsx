@@ -2,10 +2,10 @@ import { FC, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { GrFormPrevious } from "react-icons/gr";
 import { GrFormNext } from "react-icons/gr";
-import { currentDateActions, selectCurrentDate } from '../../../../store/currentDate/currentDate.slice';
-import { handleWeekChange } from '../../../../helpers/Habits/HandleWeekChange';
-import { changeDaysInWeek } from '../../../../helpers/Habits/ChangeDateInWeek';
-import { dateWithoutTime } from '../../../../helpers/ChangeDateFormat';
+import { currentDateActions, selectCurrentDate } from '@/store/currentDate/currentDate.slice';
+import { handleWeekChange } from '@/helpers/Habits/HandleWeekChange';
+import { changeDaysInWeek } from '@/helpers/Habits/ChangeDateInWeek';
+import { dateWithoutTime } from '@/helpers/ChangeDateFormat';
 import styles from './weekcalendar.module.scss'
 
 const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];

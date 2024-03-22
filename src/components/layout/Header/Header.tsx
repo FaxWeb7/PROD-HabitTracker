@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { APP_URL } from '../../../constants/constants';
-import { HeaderNav } from './HeaderNav/HeaderNav';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../../store/user/user.slice';
+import { selectUser } from '@/store/user/user.slice';
+import { APP_URL } from '@/constants/constants';
+import { HeaderNav } from './HeaderNav/HeaderNav';
 import styles from './header.module.scss'
 
 export const Header: FC = () => {

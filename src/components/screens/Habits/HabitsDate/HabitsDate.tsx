@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { currentDateActions } from '../../../../store/currentDate/currentDate.slice';
-import { storeFormatDate } from '../../../../helpers/ChangeDateFormat';
-import { PrimaryButton } from '../../../shared/PrimaryButton/PrimaryButton';
+import { currentDateActions } from '@/store/currentDate/currentDate.slice';
+import { storeFormatDate } from '@/helpers/ChangeDateFormat';
+import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
 import styles from './habitsdate.module.scss'
 
 export const HabitsDate: FC = () => {

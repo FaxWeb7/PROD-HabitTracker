@@ -1,4 +1,4 @@
-import { IHabit } from "../../models/UploadData/IHabit";
+import { IHabit } from "@/models/UploadData/IHabit";
 
 export const getMaxHabitId = (habits: IHabit[]) => {
   let maxId = 0

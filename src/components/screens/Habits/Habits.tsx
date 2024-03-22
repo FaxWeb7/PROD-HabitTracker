@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useTitle } from '../../../hooks/useTitle';
+import { useTitle } from '@/hooks/useTitle';
 import { HabitsTitle } from './HabitsTitle/HabitsTitle';
 import { HabitsWeekCalendar } from './HabitsWeekCalendar/HabitsWeekCalendar';
 import { HabitsMainSection } from './HabitsMainSection/HabitsMainSection';
