@@ -1,6 +1,7 @@
 @import "../../../../styles/vars";
 
 .nav{
+  z-index: 20;
   &__list{
     display: flex;
     flex-direction: row;
