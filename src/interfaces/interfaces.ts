@@ -32,3 +32,8 @@ export interface IUserStats {
   icon: IconType
   text: string
 }
+
+export interface IChartItem {
+  axisX: number[]
+  axisY: number[]
+}
