@@ -17,7 +17,7 @@ export interface IHabitHelper {
 
 export interface IAuthFormInputs {
   name: string
-  color: string
+  randomNum: number
 }
 
 export interface IAddHabitInputs {
