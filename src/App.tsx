@@ -2,10 +2,11 @@ import { FC, ReactNode, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { currentDateActions, selectCurrentDate } from './store/currentDate/currentDate.slice'
 import { selectUploadData, uploadDataActions } from './store/uploadData/uploadData.slice'
-import { selectUser } from './store/user/user.slice'
+import { selectUser, userActions } from './store/user/user.slice'
 import { IHabit } from './models/UploadData/IHabit'
 import { IHabitAction } from './models/UploadData/IHabitAction'
 import { storeFormatDate } from './helpers/ChangeDateFormat'
+import { countUserStats } from './helpers/CountUserStats'
 import { Header } from './components/layout/Header/Header'
 import { Loading } from './components/shared/Loading/Loading'
 import { AuthModal } from './components/shared/AuthModal/AuthModal'
@@ -32,6 +33,8 @@ export const App: FC<IAppProps> = ({ children }) => {
     if (Object.keys(user).length !== 0){
       setIsAuth(true)
     }
+    const newUser = countUserStats({user, uploadData, currentDate})
+    dispatch(userActions.setUser(newUser))
     setIsLoading(false)
   }, [])
 

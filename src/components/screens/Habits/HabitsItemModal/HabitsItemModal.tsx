@@ -6,8 +6,10 @@ import { RiEyeOffLine } from "react-icons/ri";
 import { FiTrash2 } from "react-icons/fi";
 import { selectUploadData, uploadDataActions } from '@/store/uploadData/uploadData.slice';
 import { selectCurrentDate } from '@/store/currentDate/currentDate.slice';
+import { selectUser, userActions } from '@/store/user/user.slice';
 import { IHabit } from '@/models/UploadData/IHabit';
 import { IHabitAction } from '@/models/UploadData/IHabitAction';
+import { IUploadData } from '@/models/UploadData/IUploadData';
 import { convertDate } from '@/helpers/ConvertDate';
 import { removeTodayActionById } from './helpers/RemoveTodayActionById';
 import { getTodayActionById } from './helpers/GetTodayActionById';
@@ -16,6 +18,7 @@ import { countPeriodActionsById } from './helpers/CountPeriodActionsById';
 import { addStopDateHabitById } from './helpers/AddStopDateHabitById';
 import { removeHabitById } from './helpers/RemoveHabitById';
 import { removeActionsById } from './helpers/RemoveActionsById';
+import { countUserStats } from '@/helpers/CountUserStats';
 import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
 import styles from './habitsitemmodal.module.scss'
 
@@ -29,6 +32,7 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
   const [inputValue, setInputValue] = useState<string>('')
   const [inputSum, setInputSum] = useState<number>(0)
   const { uploadData } = useSelector(selectUploadData)
+  const { user } = useSelector(selectUser)
   const { currentDate } = useSelector(selectCurrentDate)
   const dispatch = useDispatch()
 
@@ -63,19 +67,26 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
   const handleSaveHabit = () => {
     const newActions = removeTodayActionById([...uploadData.actions], habit.id, currentDate)
     dispatch(uploadDataActions.setUploadData({habits: uploadData.habits, actions: newActions }))
+    let newUploadData: IUploadData = {...uploadData, actions: newActions}
     if (inputValue != ''){
       const newAction = {id: habit.id, date: currentDate, value: Number(inputValue)} 
       dispatch(uploadDataActions.addAction(newAction))
+      newUploadData = {...newUploadData, actions: [...uploadData.actions, newAction]}
     } else if (isChecked) {
       const newAction = {id: habit.id, date: currentDate}
       dispatch(uploadDataActions.addAction(newAction))
+      newUploadData = {...newUploadData, actions: [...uploadData.actions, newAction]}
     }
+    const newUser = countUserStats({ user, uploadData: newUploadData, currentDate })
+    dispatch(userActions.setUser(newUser))
     setIsModalShow(false)
   }
   
   const handleStopHabit = () => {
     const newHabits = addStopDateHabitById([...uploadData.habits], habit.id, currentDate)
     dispatch(uploadDataActions.setUploadData({habits: newHabits, actions: [...uploadData.actions]}))
+    const newUser = countUserStats({user, uploadData: {habits: newHabits, actions: [...uploadData.actions]}, currentDate})
+    dispatch(userActions.setUser(newUser))
     setIsModalShow(false)
   }
   
@@ -83,6 +94,8 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
     const newHabits = removeHabitById([...uploadData.habits], habit.id)
     const newActions = removeActionsById([...uploadData.actions], habit.id)
     dispatch(uploadDataActions.setUploadData({habits: newHabits, actions: newActions}))
+    const newUser = countUserStats({user, uploadData: {habits: newHabits, actions: newActions}, currentDate})
+    dispatch(userActions.setUser(newUser))
     setIsModalShow(false)
   }
   

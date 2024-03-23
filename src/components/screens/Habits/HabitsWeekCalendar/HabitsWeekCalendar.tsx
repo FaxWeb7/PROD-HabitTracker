@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GrFormPrevious } from "react-icons/gr";
 import { GrFormNext } from "react-icons/gr";
 import { currentDateActions, selectCurrentDate } from '@/store/currentDate/currentDate.slice';
+import { selectUser, userActions } from '@/store/user/user.slice';
+import { selectUploadData } from '@/store/uploadData/uploadData.slice';
 import { handleWeekChange } from '@/helpers/Habits/HandleWeekChange';
 import { changeDaysInWeek } from '@/helpers/Habits/ChangeDateInWeek';
 import { dateWithoutTime } from '@/helpers/ChangeDateFormat';
+import { countUserStats } from '@/helpers/CountUserStats';
 import styles from './weekcalendar.module.scss'
 
 const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
@@ -13,6 +16,8 @@ const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 export const HabitsWeekCalendar: FC = () => {
   const [weekDates, setWeekDates] = useState<string[]>([]);
   const { currentDate } = useSelector(selectCurrentDate)
+  const { user } = useSelector(selectUser)
+  const { uploadData } = useSelector(selectUploadData)
   const dispatch = useDispatch()
   
   useEffect(() => {
@@ -32,6 +37,8 @@ export const HabitsWeekCalendar: FC = () => {
   const handleChangeDate = (stringItemDate: string): void => {
     const newCurrentDate: string = changeDaysInWeek(dateWithoutTime(currentDate), Number(stringItemDate));
     dispatch(currentDateActions.setValue(newCurrentDate))
+    const newUser = countUserStats({user, uploadData, currentDate: newCurrentDate})
+    dispatch(userActions.setUser(newUser))
   }
 
   return (

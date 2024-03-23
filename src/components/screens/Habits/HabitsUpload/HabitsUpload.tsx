@@ -1,12 +1,17 @@
 import { ChangeEvent, FC, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { uploadDataActions } from '@/store/uploadData/uploadData.slice';
+import { selectUser, userActions } from '@/store/user/user.slice';
+import { selectCurrentDate } from '@/store/currentDate/currentDate.slice';
 import { IUploadData } from '@/models/UploadData/IUploadData';
+import { countUserStats } from '@/helpers/CountUserStats';
 import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
 import styles from './habitsupload.module.scss'
 
 export const HabitsUpload: FC = () => {
   const [fileData, setFileData] = useState<IUploadData>({} as IUploadData)
+  const { user } = useSelector(selectUser)
+  const { currentDate } = useSelector(selectCurrentDate)
   const dispatch = useDispatch()
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +32,8 @@ export const HabitsUpload: FC = () => {
   const handleFileSubmit = () => {
     if (Object.keys(fileData).length){
       dispatch(uploadDataActions.setUploadData(fileData))
+      const newUser = countUserStats({user, uploadData: fileData, currentDate})
+      dispatch(userActions.setUser(newUser))
     }
   }
 

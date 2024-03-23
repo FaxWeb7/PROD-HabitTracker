@@ -18,8 +18,6 @@ interface IHabitAddModalProps {
   setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-
-
 export const HabitAddModal: FC<IHabitAddModalProps> = ({ setIsModalShow }: IHabitAddModalProps) => {
   const { register, handleSubmit, formState: { errors }, getValues } = useForm<IAddHabitInputs>()
   const { user } = useSelector(selectUser)
