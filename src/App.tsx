@@ -10,6 +10,7 @@ import { countUserStats } from './helpers/CountUserStats'
 import { Header } from './components/layout/Header/Header'
 import { Loading } from './components/shared/Loading/Loading'
 import { AuthModal } from './components/shared/AuthModal/AuthModal'
+import { Footer } from './components/layout/Footer/Footer'
 
 interface IAppProps {
   children: ReactNode
@@ -51,6 +52,7 @@ export const App: FC<IAppProps> = ({ children }) => {
       <main className='main'>
         { children }
       </main>
+      <Footer />
     </div>
   )
 }
