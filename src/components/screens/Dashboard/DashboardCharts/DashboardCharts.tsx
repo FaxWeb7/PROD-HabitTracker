@@ -32,6 +32,7 @@ export const DashboardCharts: FC = () => {
           width={320}
           height={240}
         />
+        <p className={styles['charts__item-subtitle']}>(ось x - дни с момента регистрации, ось y - кол-во выполненных привычек)</p>
       </li>
       <li className={styles['charts__item']}>
         <h2 className={styles['charts__item-title']}>График количества добавленных привычек в день</h2>
@@ -45,6 +46,7 @@ export const DashboardCharts: FC = () => {
           width={320}
           height={240}
         />
+        <p className={styles['charts__item-subtitle']}>(ось x - дни с момента регистрации, ось y - кол-во добавленных привычек)</p>
       </li>
     </ul>
   )

@@ -16,6 +16,11 @@
       margin-bottom: -40px;
       font-size: 26px;
     }
+    &-subtitle{
+      margin-top: -50px;
+      font-size: 14px;
+      margin-bottom: 50px;
+    }
   }
   tspan{
     font-size: 9px;
@@ -43,6 +48,11 @@
       &-title{
         margin-bottom: -15px;
       }
+      &-subtitle{
+        margin-top: -20px;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
     }
   }
   @media(max-width: 690px){
@@ -57,6 +67,10 @@
       }
       div{
         transform: scale(1.2);
+      }
+      &-subtitle{
+        margin-top: 0px;
+        margin-bottom: 15px;
       }
     }
   }
