@@ -26,7 +26,8 @@ export const countUserStats = ({user, uploadData, currentDate}: ICountUserStats)
         }
       })
       if (habit.period === 'daily'){
-        const habitSum = (actionCounter*DAILY_EXPERIENCE)
+        const skippedSum = Math.floor(((Number(new Date((habit.stoppedDate ? habit.stoppedDate : currentDate))) - Number(new Date(habit.addDate))) / (1000 * 60 * 60 * 24) + 1) - actionCounter - 1)*DAILY_EXPERIENCE
+        const habitSum = (actionCounter*DAILY_EXPERIENCE) - (skippedSum > 0 ? Math.floor(skippedSum/4) : 0)
         curExp += (habitSum > 0 ? habitSum : 0)
       }
       else if (habit.period === 'weekly' || habit.period === 'monthly'){
@@ -37,7 +38,8 @@ export const countUserStats = ({user, uploadData, currentDate}: ICountUserStats)
           nextPeriodAction = new Date(nextPeriodAction.getTime() + (habit.period === 'weekly' ? 7 : 30) * 24 * 60 * 60 * 1000)
           periodCounter++
         }
-        const habitSum = (actionCounter*(habit.period === 'weekly' ? WEEKLY_EXPERIENCE : MONTHLY_EXPERIENCE))
+        const skippedSum = (periodCounter - actionCounter - 1)*(habit.period === 'weekly' ? WEEKLY_EXPERIENCE : MONTHLY_EXPERIENCE)
+        const habitSum = (actionCounter*(habit.period === 'weekly' ? WEEKLY_EXPERIENCE : MONTHLY_EXPERIENCE)) - (skippedSum > 0 ? Math.floor(skippedSum/4) : 0)
         curExp += (habitSum > 0 ? habitSum : 0)
       }
     } else {
@@ -47,7 +49,8 @@ export const countUserStats = ({user, uploadData, currentDate}: ICountUserStats)
             if (action.value && habit.targetValue) (action?.value >= habit?.targetValue ? actionCounter++ : actionCounter+=0)
           }
         })
-        const habitSum = (actionCounter*DAILY_EXPERIENCE)
+        const skippedSum = Math.floor(((Number(new Date((habit.stoppedDate ? habit.stoppedDate : currentDate))) - Number(new Date(habit.addDate))) / (1000 * 60 * 60 * 24) + 1) - actionCounter - 1)*DAILY_EXPERIENCE
+        const habitSum = (actionCounter*DAILY_EXPERIENCE) - (skippedSum > 0 ? Math.floor(skippedSum/4) : 0)
         curExp += (habitSum > 0 ? habitSum : 0)
       } else if (habit.period === 'weekly' || habit.period === 'monthly'){
         let periodCounter = 0
@@ -66,7 +69,8 @@ export const countUserStats = ({user, uploadData, currentDate}: ICountUserStats)
           if (targetValueCounter >= habit.targetValue) goodActionsCounter++
           periodCounter++
         }
-        const habitSum = (goodActionsCounter*(habit.period === 'weekly' ? WEEKLY_EXPERIENCE : MONTHLY_EXPERIENCE))
+        const skippedSum = (periodCounter - goodActionsCounter - 1)*(habit.period === 'weekly' ? WEEKLY_EXPERIENCE : MONTHLY_EXPERIENCE)
+        const habitSum = (goodActionsCounter*(habit.period === 'weekly' ? WEEKLY_EXPERIENCE : MONTHLY_EXPERIENCE)) - (skippedSum > 0 ? Math.floor(skippedSum/4) : 0)
         curExp += (habitSum > 0 ? habitSum : 0)
       }
     }
