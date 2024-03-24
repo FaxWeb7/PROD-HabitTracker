@@ -16,7 +16,7 @@ export const HabitItem: FC<HabitItemProps> = ({ habit }: HabitItemProps) => {
     <div ref={ref}>
       {isShow && <HabitsItemModal habit={habit} setIsModalShow={setIsShow} />}
       <div className={styles['habit-item']}>
-        <button className={styles['habit-item__button']} role="button" onClick={() => setIsShow(!isShow)}>
+        <button className={styles['habit-item__button']} role="button" onClick={() => setIsShow(!isShow)} aria-label="open habit">
           <svg className={styles['habit-item__button-icon']} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style={{ stopColor: '#1088F2' }} />
@@ -25,7 +25,7 @@ export const HabitItem: FC<HabitItemProps> = ({ habit }: HabitItemProps) => {
             <CiCircleMore style={{ fill: 'url(#gradient)' }} />
           </svg>
         </button>
-        <h5 className={styles['habit-item__title']}>{habit.title}</h5>
+        <p className={styles['habit-item__title']}>{habit.title}</p>
       </div>
     </div>
   )

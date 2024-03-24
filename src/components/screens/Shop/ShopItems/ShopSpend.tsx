@@ -73,12 +73,12 @@ export const ShopSpend: FC = () => {
           <div className={styles['shop-item__card-header']}>
             <div className={styles['shop-item__card-info']}>
               <FaCoins className={styles['shop-item__card-icon']} />
-              <h5 className={styles['shop-item__card-amount']}>400</h5>
+              <p className={styles['shop-item__card-amount']}>400</p>
             </div>
-            <h5 className={styles['shop-item__card-text']}>Изменить аватарку</h5>
+            <p className={styles['shop-item__card-text']}>Изменить аватарку</p>
           </div>
           <div className={styles['shop-item__card-main']}>
-            <h5 className={styles['shop-item__card-subtext']}>Прикрепить файл: </h5>
+            <p className={styles['shop-item__card-subtext']}>Прикрепить файл: </p>
             <div className={styles['shop-item__card-wrapper-input']}>
               <input
                 type="file"
@@ -111,16 +111,19 @@ export const ShopSpend: FC = () => {
           <div className={styles['shop-item__card-header']}>
             <div className={styles['shop-item__card-info']}>
               <FaCoins className={styles['shop-item__card-icon']} />
-              <h5 className={styles['shop-item__card-amount']}>150</h5>
+              <p className={styles['shop-item__card-amount']}>150</p>
             </div>
-            <h5 className={styles['shop-item__card-text']}>Изменить имя</h5>
+            <p className={styles['shop-item__card-text']}>Изменить имя</p>
           </div>
           <div className={styles['shop-item__card-main']}>
-            <h5 className={styles['shop-item__card-subtext']}>Введите новое имя: </h5>
+            <label htmlFor="name" className={styles['shop-item__card-subtext']}>
+              Введите новое имя:{' '}
+            </label>
             <div className={styles['shop-item__card-wrapper-input']}>
               <input
                 type="text"
                 autoComplete="text"
+                id="name"
                 className={styles['shop-item__card-input']}
                 {...nameForm.register('name', {
                   required: 'Это поле обязательно!',
@@ -143,12 +146,12 @@ export const ShopSpend: FC = () => {
           <div className={styles['shop-item__card-header']}>
             <div className={styles['shop-item__card-info']}>
               <FaCoins className={styles['shop-item__card-icon']} />
-              <h5 className={styles['shop-item__card-amount']}>100</h5>
+              <p className={styles['shop-item__card-amount']}>100</p>
             </div>
-            <h5 className={styles['shop-item__card-text']}>Пропуск привычек на сегодня</h5>
+            <p className={styles['shop-item__card-text']}>Пропуск привычек на сегодня</p>
           </div>
           <div className={styles['shop-item__card-main']}>
-            <h5 className={styles['shop-item__card-subtext']}>(Пропускаются привычки на сегодя, и сохраняется рекорд)</h5>
+            <p className={styles['shop-item__card-subtext']}>(Пропускаются привычки на сегодя, и сохраняется рекорд)</p>
             {isSkipError && <span className={styles['shop-item__card-error']}>У вас не хватает ProdCoin!</span>}
           </div>
           <PrimaryButton text="Пропустить" type="button" className={styles['shop-item__card-button']} onClick={handleSkipDay} />

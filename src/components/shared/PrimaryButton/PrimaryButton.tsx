@@ -13,15 +13,9 @@ interface IPrimaryButton {
 
 export const PrimaryButton: FC<IPrimaryButton> = (props: IPrimaryButton) => {
   return (
-    <button
-      className={`${styles['button']} ${props?.className}`}
-      type={props?.type}
-      aria-autocomplete="none"
-      onClick={props.onClick}
-      disabled={props?.disabled}
-    >
+    <button className={`${styles['button']} ${props?.className}`} type={props?.type} onClick={props.onClick} disabled={props?.disabled}>
       {props.icon && <props.icon className={styles['button__icon']} />}
-      <h3 className={styles['button__text']}>{props.text}</h3>
+      <p className={styles['button__text']}>{props.text}</p>
     </button>
   )
 }

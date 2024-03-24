@@ -11,7 +11,7 @@ export const HeaderNav: FC = () => {
 
   return (
     <nav className={styles['nav']} ref={ref}>
-      <button className={styles['nav__burger-button']} onClick={() => setIsShow(!isShow)}>
+      <button className={styles['nav__burger-button']} onClick={() => setIsShow(!isShow)} aria-label="open menu">
         <CgMenu className={styles['nav__burger-icon']} />
       </button>
       <ul className={isShow ? `${styles['nav__list']} ${styles['active']}` : styles['nav__list']}>

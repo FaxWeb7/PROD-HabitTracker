@@ -15,13 +15,13 @@ export const UserStats: FC<IUserStatsProps> = ({ statsList }: IUserStatsProps) =
   return (
     <div className={styles['user-stats']} role="list">
       {statsList.map((listItem, index) => (
-        <div className={styles['user-stats__col']} role="list" key={index}>
+        <div className={styles['user-stats__col']} role="listitem" key={index}>
           {listItem.map((statsItem, idx) => (
             <div className={styles['user-stats__item']} key={idx}>
               <statsItem.icon className={styles['user-stats__item-icon']} />
               <div className={styles['user-stats__item-text']}>
-                <h3 className={styles['user-stats__item-title']}>{getStatsElByText(statsItem.text, user)}</h3>
-                <h4 className={styles['user-stats__item-subtitle']}>{statsItem.text}</h4>
+                <p className={styles['user-stats__item-title']}>{getStatsElByText(statsItem.text, user)}</p>
+                <p className={styles['user-stats__item-subtitle']}>{statsItem.text}</p>
               </div>
             </div>
           ))}

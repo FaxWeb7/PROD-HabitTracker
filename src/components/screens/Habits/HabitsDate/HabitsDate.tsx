@@ -27,7 +27,9 @@ export const HabitsDate: FC = () => {
 
   return (
     <div className={styles['habits-date']}>
-      <h2 className={styles['habits-date__text']}>Установка текущей даты</h2>
+      <label htmlFor="date-input" className={styles['habits-date__text']}>
+        Установка текущей даты
+      </label>
       <input
         id="date-input"
         type="datetime-local"

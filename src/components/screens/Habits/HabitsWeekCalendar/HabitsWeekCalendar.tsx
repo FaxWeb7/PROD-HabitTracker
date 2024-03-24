@@ -49,7 +49,7 @@ export const HabitsWeekCalendar: FC = () => {
           <li className={styles['week__list-item']} key={index}>
             <button className={styles['week__item']} type="button" onClick={() => handleChangeDate(weekDates[index])}>
               <p className={styles['week__item-day']}>{day}</p>
-              <h4 className={styles['week__item-date']}>{weekDates[index]}</h4>
+              <p className={styles['week__item-date']}>{weekDates[index]}</p>
             </button>
           </li>
         ))}

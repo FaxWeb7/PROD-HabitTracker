@@ -18,15 +18,15 @@ export const HabitsMainSection: FC = () => {
     <div className={styles['habits-main']}>
       {isEmptyHabits ? (
         <div className={styles['habits-main__expect']}>
-          <h3>Привычек нет :(</h3>
-          <h4>Нажмите на кнопку &quot;Новая привычка&quot; чтобы добавить привычку</h4>
+          <p className={styles['habits-main__expect-title']}>Привычек нет :(</p>
+          <p>Нажмите на кнопку &quot;Новая привычка&quot; чтобы добавить привычку</p>
         </div>
       ) : (
         sortedHabits.map(
           ([period, habitsList], idx) =>
             habitsList?.length !== 0 && (
               <div className={styles['habits-main__list-wrapper']} key={idx}>
-                <h3 className={styles['habits-main__title']}>Привычки на {getPeriodTitle(period)}</h3>
+                <p className={styles['habits-main__title']}>Привычки на {getPeriodTitle(period)}</p>
                 <ul className={styles['habits-main__list']} role="list">
                   {habitsList?.map((habit: IHabit, index: number) => (
                     <li className={styles['habits-main__item']} key={index}>

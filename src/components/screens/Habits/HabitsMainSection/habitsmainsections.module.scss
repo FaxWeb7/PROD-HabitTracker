@@ -1,3 +1,5 @@
+@import '@/styles/vars';
+
 .habits-main {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,16 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    &-title {
+      font-weight: 500;
+      font-size: 20px;
+      color: $secondaryColor;
+    }
+    &-text {
+      font-weight: 400;
+      font-size: 18px;
+      color: $secondaryColor;
+    }
   }
   &__list-wrapper {
     display: flex;

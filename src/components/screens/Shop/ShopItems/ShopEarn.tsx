@@ -42,12 +42,12 @@ export const ShopEarn: FC = () => {
           <div className={styles['shop-item__card-header']}>
             <div className={styles['shop-item__card-info']}>
               <FaCoins className={styles['shop-item__card-icon']} />
-              <h5 className={styles['shop-item__card-amount']}>80</h5>
+              <p className={styles['shop-item__card-amount']}>80</p>
             </div>
-            <h5 className={styles['shop-item__card-text']}>Подписаться на GitHub разработчика</h5>
+            <p className={styles['shop-item__card-text']}>Подписаться на GitHub разработчика</p>
           </div>
           <div className={styles['shop-item__card-main']}>
-            <h5 className={styles['shop-item__card-subtext']}>Ссылка на GitHub: </h5>
+            <p className={styles['shop-item__card-subtext']}>Ссылка на GitHub: </p>
             <a href="https://github.com/FaxWeb7" target="_blank" className={styles['shop-item__card-link']}>
               github.com/FaxWeb7
             </a>
@@ -64,18 +64,18 @@ export const ShopEarn: FC = () => {
           <div className={styles['shop-item__card-header']}>
             <div className={styles['shop-item__card-info']}>
               <FaCoins className={styles['shop-item__card-icon']} />
-              <h5 className={styles['shop-item__card-amount']}>40</h5>
+              <p className={styles['shop-item__card-amount']}>40</p>
             </div>
-            <h5 className={styles['shop-item__card-text']}>Пригласить друга</h5>
+            <p className={styles['shop-item__card-text']}>Пригласить друга</p>
           </div>
           <div className={styles['shop-item__card-main']}>
-            <h5 className={styles['shop-item__card-subtext']}>Реферальная ссылка: </h5>
-            <h5
+            <p className={styles['shop-item__card-subtext']}>Реферальная ссылка: </p>
+            <p
               className={`${styles['shop-item__card-link']} ${styles.ref}`}
               onClick={() => navigator.clipboard.writeText('https://frontend-fax-web7.vercel.app/')}
             >
               frontend-fax-web7.vercel.app/
-            </h5>
+            </p>
           </div>
           <PrimaryButton
             text={user.isInviteFriend ? 'Выполнено' : 'Готово'}
@@ -89,15 +89,18 @@ export const ShopEarn: FC = () => {
           <div className={styles['shop-item__card-header']}>
             <div className={styles['shop-item__card-info']}>
               <FaCoins className={styles['shop-item__card-icon']} />
-              <h5 className={styles['shop-item__card-amount']}>∞</h5>
+              <p className={styles['shop-item__card-amount']}>∞</p>
             </div>
-            <h5 className={styles['shop-item__card-text']}>Обменять опыт, 1 ProdCoin = 17 опыта</h5>
+            <p className={styles['shop-item__card-text']}>Обменять опыт, 1 ProdCoin = 17 опыта</p>
           </div>
           <div className={styles['shop-item__card-main']}>
-            <h5 className={styles['shop-item__card-subtext']}>Введите кол-во опыта для обмена: </h5>
+            <label htmlFor="exchangeValue" className={styles['shop-item__card-subtext']}>
+              Введите кол-во опыта для обмена:{' '}
+            </label>
             <div className={styles['shop-item__card-wrapper-input']}>
               <input
                 type="text"
+                id="exchangeValue"
                 className={styles['shop-item__card-input']}
                 {...register('exchangeValue', {
                   required: 'Это поле обязательно!',
