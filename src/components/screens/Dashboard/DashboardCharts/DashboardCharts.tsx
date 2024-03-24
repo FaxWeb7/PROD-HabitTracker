@@ -16,7 +16,7 @@ export const DashboardCharts: FC = () => {
     const addedHabitsInfo = generateAddedHabitsInfo([...uploadData.habits])
     setCompletedHabits(completedHabitsInfo)
     setAddedHabits(addedHabitsInfo)
-  }, [])
+  }, []) //eslint-disable-line
 
   return (
     <ul role="list" className={styles['charts']}>

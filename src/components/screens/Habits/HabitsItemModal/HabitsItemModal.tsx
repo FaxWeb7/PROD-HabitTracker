@@ -60,7 +60,7 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
         setIsChecked(true)
       }
     }
-  }, [])
+  }, []) //eslint-disable-line
 
   const handleSaveHabit = () => {
     const newActions = removeTodayActionById([...uploadData.actions], habit.id, currentDate)

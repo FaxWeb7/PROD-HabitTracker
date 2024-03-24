@@ -38,11 +38,11 @@ export const App: FC<IAppProps> = ({ children }) => {
     }
     if (Object.keys(user).length !== 0) {
       setIsAuth(true)
+      const newUser = countUserStats({ user, uploadData, currentDate })
+      dispatch(userActions.setUser(newUser))
     }
-    const newUser = countUserStats({ user, uploadData, currentDate })
-    dispatch(userActions.setUser(newUser))
     setIsLoading(false)
-  }, [])
+  }, []) //eslint-disable-line
 
   if (isLoading) {
     return <Loading />
