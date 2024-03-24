@@ -16,10 +16,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <App>
           <Routes>
-            <Route path="/" element={<HabitsScreen />}/>
-            <Route path="/dashboard" element={<Dashboard />}/>
-            <Route path="/shop" element={<Shop />}/>
-            <Route path="*" element={<Error />}/>
+            <Route path="/" element={<HabitsScreen />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </App>
       </BrowserRouter>

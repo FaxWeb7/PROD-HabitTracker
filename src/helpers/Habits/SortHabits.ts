@@ -1,5 +1,5 @@
-import { ISortedHabits } from "@/interfaces/interfaces";
-import { IHabit } from "@/models/UploadData/IHabit";
+import { ISortedHabits } from '@/interfaces/interfaces'
+import { IHabit } from '@/models/UploadData/IHabit'
 
 export const sortHabits = (habits: IHabit[], currentDate: string): ISortedHabits => {
   const sortedHabits: ISortedHabits = {
@@ -8,8 +8,12 @@ export const sortHabits = (habits: IHabit[], currentDate: string): ISortedHabits
     dailyHabits: []
   }
   if (habits === undefined) return sortedHabits
+
   habits.forEach((habitItem) => {
-    if ((!habitItem.stoppedDate || new Date(currentDate) <= new Date(habitItem.stoppedDate)) && (new Date(currentDate) >= new Date(habitItem.addDate))) {
+    if (
+      (!habitItem.stoppedDate || new Date(currentDate) <= new Date(habitItem.stoppedDate)) &&
+      new Date(currentDate) >= new Date(habitItem.addDate)
+    ) {
       if (habitItem.period === 'monthly') {
         sortedHabits.monthlyHabits.push(habitItem)
       } else if (habitItem.period === 'weekly') {

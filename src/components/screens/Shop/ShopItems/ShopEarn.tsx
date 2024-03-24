@@ -1,27 +1,27 @@
-import { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { FaCoins } from 'react-icons/fa6';
-import { selectUser, userActions } from '@/store/user/user.slice';
-import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
-import styles from './shopitem.module.scss';
+import { FC } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { FaCoins } from 'react-icons/fa6'
+import { selectUser, userActions } from '@/store/user/user.slice'
+import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton'
+import styles from './shopitem.module.scss'
 
 export const ShopEarn: FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<{ exchangeValue: number }>();
-  const { user } = useSelector(selectUser);
-  const dispatch = useDispatch();
+    formState: { errors }
+  } = useForm<{ exchangeValue: number }>()
+  const { user } = useSelector(selectUser)
+  const dispatch = useDispatch()
 
   const handleSubscribe = () => {
-    dispatch(userActions.setUser({ ...user, prodCoins: Number(user.prodCoins) + 80, isGitSub: true }));
-  };
+    dispatch(userActions.setUser({ ...user, prodCoins: Number(user.prodCoins) + 80, isGitSub: true }))
+  }
 
   const handleInvite = () => {
-    dispatch(userActions.setUser({ ...user, prodCoins: Number(user.prodCoins) + 40, isInviteFriend: true }));
-  };
+    dispatch(userActions.setUser({ ...user, prodCoins: Number(user.prodCoins) + 40, isInviteFriend: true }))
+  }
 
   const handleExchange: SubmitHandler<{ exchangeValue: number }> = (data) => {
     dispatch(
@@ -29,10 +29,10 @@ export const ShopEarn: FC = () => {
         ...user,
         prodCoins: Number(user.prodCoins) + Number(Math.floor(data.exchangeValue * 0.06)),
         currentExperience: user.currentExperience - data.exchangeValue,
-        spendedExperience: (user.spendedExperience || 0) + Number(data.exchangeValue),
-      }),
-    );
-  };
+        spendedExperience: (user.spendedExperience || 0) + Number(data.exchangeValue)
+      })
+    )
+  }
 
   return (
     <div className={styles['shop-item']}>
@@ -102,24 +102,16 @@ export const ShopEarn: FC = () => {
                 {...register('exchangeValue', {
                   required: 'Это поле обязательно!',
                   validate: {
-                    validNumber: (value) =>
-                      (value >= 1 && value <= user.currentExperience) || 'У вас нет столько опыта(',
-                  },
+                    validNumber: (value) => (value >= 1 && value <= user.currentExperience) || 'У вас нет столько опыта('
+                  }
                 })}
               />
-              {errors.exchangeValue && (
-                <span className={styles['shop-item__card-error']}>{errors.exchangeValue.message}</span>
-              )}
+              {errors.exchangeValue && <span className={styles['shop-item__card-error']}>{errors.exchangeValue.message}</span>}
             </div>
           </div>
-          <PrimaryButton
-            text="Обменять"
-            type="submit"
-            className={styles['shop-item__card-button']}
-            onClick={handleSubmit(handleExchange)}
-          />
+          <PrimaryButton text="Обменять" type="submit" className={styles['shop-item__card-button']} onClick={handleSubmit(handleExchange)} />
         </li>
       </ul>
     </div>
-  );
-};
+  )
+}

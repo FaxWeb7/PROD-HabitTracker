@@ -1,4 +1,4 @@
-import { IUser } from "@/models/User/IUser";
+import { IUser } from '@/models/User/IUser'
 
 export const getStatsElByText = (statsItemText: string, user: IUser) => {
   let valueToDisplay

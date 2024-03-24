@@ -1,50 +1,69 @@
-import { FC, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { FaCoins } from 'react-icons/fa6';
-import { selectUser, userActions } from '@/store/user/user.slice';
-import { selectCurrentDate } from '@/store/currentDate/currentDate.slice';
-import { selectUploadData, uploadDataActions } from '@/store/uploadData/uploadData.slice';
-import { countUserStats } from '@/helpers/CountUserStats';
-import { skipDay } from '@/helpers/SkipDay';
-import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton';
-import styles from './shopitem.module.scss';
+import { FC, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { FaCoins } from 'react-icons/fa6'
+import { selectUser, userActions } from '@/store/user/user.slice'
+import { selectCurrentDate } from '@/store/currentDate/currentDate.slice'
+import { selectUploadData, uploadDataActions } from '@/store/uploadData/uploadData.slice'
+import { countUserStats } from '@/helpers/CountUserStats'
+import { skipDay } from '@/components/screens/Shop/SkipDay'
+import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton'
+import styles from './shopitem.module.scss'
 
 export const ShopSpend: FC = () => {
-  const avatarForm = useForm<{ avatarBase64: Blob[] }>();
-  const nameForm = useForm<{ name: string }>();
-  const [isSkipError, setIsSkipError] = useState<boolean>(false);
-  const { user } = useSelector(selectUser);
-  const { currentDate } = useSelector(selectCurrentDate);
-  const { uploadData } = useSelector(selectUploadData);
-  const dispatch = useDispatch();
+  const avatarForm = useForm<{ avatarBase64: Blob[] }>()
+  const nameForm = useForm<{ name: string }>()
+  const [isSkipError, setIsSkipError] = useState<boolean>(false)
+  const { user } = useSelector(selectUser)
+  const { currentDate } = useSelector(selectCurrentDate)
+  const { uploadData } = useSelector(selectUploadData)
+  const dispatch = useDispatch()
 
   const handleChangeAvatar: SubmitHandler<{ avatarBase64: Blob[] }> = (data) => {
-    const imageFile = data.avatarBase64[0];
-    const reader = new FileReader();
+    const imageFile = data.avatarBase64[0]
+    const reader = new FileReader()
     reader.onload = (event: ProgressEvent<FileReader>) => {
-      const imageBase64 = event.target?.result;
+      const imageBase64 = event.target?.result
       dispatch(
-        userActions.setUser({ ...user, prodCoins: Number(user.prodCoins) - 400, avatarBase64: String(imageBase64) }),
-      );
-    };
-    reader.readAsDataURL(imageFile);
-  };
+        userActions.setUser({
+          ...user,
+          prodCoins: Number(user.prodCoins) - 400,
+          avatarBase64: String(imageBase64)
+        })
+      )
+    }
+    reader.readAsDataURL(imageFile)
+  }
 
   const handleChangeName: SubmitHandler<{ name: string }> = (data) => {
-    dispatch(userActions.setUser({ ...user, name: data.name, prodCoins: Number(user.prodCoins) - 150 }));
-  };
+    dispatch(
+      userActions.setUser({
+        ...user,
+        name: data.name,
+        prodCoins: Number(user.prodCoins) - 150
+      })
+    )
+  }
 
   const handleSkipDay = () => {
     if (Number(user.prodCoins) < 100) {
-      setIsSkipError(true);
-      return;
+      setIsSkipError(true)
+      return
     }
-    const newUploadData = skipDay(uploadData, currentDate);
-    const newUser = countUserStats({ user, uploadData: newUploadData, currentDate });
-    dispatch(uploadDataActions.setUploadData(newUploadData));
-    dispatch(userActions.setUser({ ...newUser, prodCoins: Number(newUser.prodCoins) - 100 }));
-  };
+    const newUploadData = skipDay(uploadData, currentDate)
+    const newUser = countUserStats({
+      user,
+      uploadData: newUploadData,
+      currentDate
+    })
+    dispatch(uploadDataActions.setUploadData(newUploadData))
+    dispatch(
+      userActions.setUser({
+        ...newUser,
+        prodCoins: Number(newUser.prodCoins) - 100
+      })
+    )
+  }
 
   return (
     <div className={styles['shop-item']}>
@@ -69,17 +88,15 @@ export const ShopSpend: FC = () => {
                 {...avatarForm.register('avatarBase64', {
                   required: 'Это поле обязательно!',
                   validate: {
-                    validNumber: () => user.prodCoins >= 400 || 'У вас не хватает ProdCoin!',
-                  },
+                    validNumber: () => user.prodCoins >= 400 || 'У вас не хватает ProdCoin!'
+                  }
                 })}
               />
               <label htmlFor="file-avatar" className={`${styles['shop-item__card-input']} ${styles.custom}`}>
                 Выбрать файл
               </label>
               {avatarForm.formState.errors.avatarBase64 && (
-                <span className={styles['shop-item__card-error']}>
-                  {avatarForm.formState.errors.avatarBase64.message}
-                </span>
+                <span className={styles['shop-item__card-error']}>{avatarForm.formState.errors.avatarBase64.message}</span>
               )}
             </div>
           </div>
@@ -108,13 +125,11 @@ export const ShopSpend: FC = () => {
                 {...nameForm.register('name', {
                   required: 'Это поле обязательно!',
                   validate: {
-                    validNumber: () => user.prodCoins >= 150 || 'У вас не хватает ProdCoin!',
-                  },
+                    validNumber: () => user.prodCoins >= 150 || 'У вас не хватает ProdCoin!'
+                  }
                 })}
               />
-              {nameForm.formState.errors.name && (
-                <span className={styles['shop-item__card-error']}>{nameForm.formState.errors.name.message}</span>
-              )}
+              {nameForm.formState.errors.name && <span className={styles['shop-item__card-error']}>{nameForm.formState.errors.name.message}</span>}
             </div>
           </div>
           <PrimaryButton
@@ -133,19 +148,12 @@ export const ShopSpend: FC = () => {
             <h5 className={styles['shop-item__card-text']}>Пропуск привычек на сегодня</h5>
           </div>
           <div className={styles['shop-item__card-main']}>
-            <h5 className={styles['shop-item__card-subtext']}>
-              (Пропускаются привычки на сегодя, и сохраняется рекорд)
-            </h5>
+            <h5 className={styles['shop-item__card-subtext']}>(Пропускаются привычки на сегодя, и сохраняется рекорд)</h5>
             {isSkipError && <span className={styles['shop-item__card-error']}>У вас не хватает ProdCoin!</span>}
           </div>
-          <PrimaryButton
-            text="Пропустить"
-            type="button"
-            className={styles['shop-item__card-button']}
-            onClick={handleSkipDay}
-          />
+          <PrimaryButton text="Пропустить" type="button" className={styles['shop-item__card-button']} onClick={handleSkipDay} />
         </li>
       </ul>
     </div>
-  );
-};
+  )
+}

@@ -1,28 +1,28 @@
-@import "@/styles/vars";
+@import '@/styles/vars';
 
-.habit-item{
+.habit-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
-  &__button{
+  &__button {
     padding: 0;
     background-color: transparent;
-    &-icon{
+    &-icon {
       width: 50px;
       height: 50px;
       background-color: transparent;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       transform: translateY(5px);
-      svg{
+      svg {
         font-size: 21px;
       }
-      &:hover{
+      &:hover {
         transform: scale(1.02);
       }
     }
   }
-  &__title{
+  &__title {
     background-color: #fff;
     max-width: 100%;
     width: 100%;
@@ -32,7 +32,7 @@
     font-weight: 550;
     padding-left: 22px;
     position: relative;
-    &::after{
+    &::after {
       content: '';
       position: absolute;
       top: 0;
@@ -43,28 +43,28 @@
       background: linear-gradient(0turn, $primaryLightColor, $primaryColor);
     }
   }
-  @media(max-width: 840px){
+  @media (max-width: 840px) {
     gap: 3px;
-    &__title{
+    &__title {
       font-size: 13px;
-      &::after{
+      &::after {
         width: 3px;
       }
     }
-    &__button{
+    &__button {
       padding: 0;
       background-color: transparent;
-      &-icon{
+      &-icon {
         width: 40px;
         height: 40px;
         transform: translateY(5px);
-        svg{
+        svg {
           font-size: 20px;
         }
       }
     }
   }
-  @media(max-width: 420px){
-    gap: 1px
+  @media (max-width: 420px) {
+    gap: 1px;
   }
 }

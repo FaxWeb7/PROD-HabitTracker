@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { PulseLoader } from 'react-spinners';
+import { FC } from 'react'
+import { PulseLoader } from 'react-spinners'
 
 interface ILoadingProps {
   size?: number

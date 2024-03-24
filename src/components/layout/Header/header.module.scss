@@ -1,5 +1,5 @@
-.header{
-  &__inner{
+.header {
+  &__inner {
     background-color: #fff;
     padding: 14px 20px;
     border-radius: 12px;
@@ -8,46 +8,46 @@
     align-items: center;
     justify-content: space-between;
   }
-  &__profile{
+  &__profile {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
-    &-name{
+    &-name {
       font-size: 16px;
     }
-    &-avatar{
+    &-avatar {
       width: 38px;
       height: 38px;
     }
   }
-  @media(max-width: 690px){
-    &__inner{
+  @media (max-width: 690px) {
+    &__inner {
       padding: 10px 14px;
       border-radius: 8px;
     }
-    &__profile{
+    &__profile {
       flex-direction: column;
       gap: 4px;
-      &-avatar{
+      &-avatar {
         order: 1;
         width: 30px;
         height: 30px;
       }
-      &-name{
+      &-name {
         order: 2;
       }
     }
   }
-  @media(max-width: 576px){
-    &__profile{
+  @media (max-width: 576px) {
+    &__profile {
       flex-direction: row;
       gap: 8px;
-      &-avatar{
+      &-avatar {
         order: 2;
       }
-      &-name{
+      &-name {
         order: 1;
       }
     }

@@ -1,48 +1,48 @@
-@import "@/styles/vars";
+@import '@/styles/vars';
 
-.footer{
+.footer {
   background-color: $secondaryColor;
   margin-top: 50px;
-  &__inner{
+  &__inner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: white;
   }
-  &__rights{
+  &__rights {
     font-size: 14px;
     font-weight: 400;
   }
-  &__link{
+  &__link {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    &-icon{
+    &-icon {
       color: white;
       font-size: 24px;
     }
-    &-text{
+    &-text {
       color: white;
       font-weight: 400;
     }
   }
-  @media(max-width: 840px){
+  @media (max-width: 840px) {
     margin-top: 30px;
-    &__inner{
+    &__inner {
       padding-right: 5px;
       padding-left: 5px;
     }
-    &__rights{
+    &__rights {
       font-size: 12px;
     }
-    &__link{
+    &__link {
       gap: 5px;
-      &-icon{
+      &-icon {
         font-size: 21px;
       }
-      &-text{
+      &-text {
         font-size: 14px;
       }
     }

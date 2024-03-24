@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { useTitle } from '@/hooks/useTitle';
-import { UserStats } from '@/components/shared/UserStats/UserStats';
-import { DashboardCharts } from './DashboardCharts/DashboardCharts';
-import { dashboardStatsList } from './DashboardStatsList';
-import styles from './dashboard.module.scss';
+import { FC } from 'react'
+import { useTitle } from '@/hooks/useTitle'
+import { UserStats } from '@/components/shared/UserStats/UserStats'
+import { DashboardCharts } from './DashboardCharts/DashboardCharts'
+import { dashboardStatsList } from './DashboardStatsList'
+import styles from './dashboard.module.scss'
 
 export const Dashboard: FC = () => {
   useTitle('Статистика')

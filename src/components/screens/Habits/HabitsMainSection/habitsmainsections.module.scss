@@ -1,36 +1,36 @@
-.habits-main{
+.habits-main {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  &__expect{
+  &__expect {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  &__list-wrapper{
+  &__list-wrapper {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  &__title{
+  &__title {
     font-size: 24px;
   }
-  &__list{
+  &__list {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
-  @media(max-width: 840px){
-    &__title{
+  @media (max-width: 840px) {
+    &__title {
       font-size: 20px;
     }
   }
-  @media(max-width: 420px){
+  @media (max-width: 420px) {
     gap: 30px;
-    &__title{
+    &__title {
       font-size: 18px;
     }
-    &__list{
+    &__list {
       gap: 12px;
     }
   }

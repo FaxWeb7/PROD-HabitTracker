@@ -1,6 +1,6 @@
-import { IconType } from "react-icons"
-import { IHabit } from "@/models/UploadData/IHabit"
-import { IHabitAction } from "@/models/UploadData/IHabitAction"
+import { IconType } from 'react-icons'
+import { IHabit } from '@/models/UploadData/IHabit'
+import { IHabitAction } from '@/models/UploadData/IHabitAction'
 
 export interface ISortedHabits {
   monthlyHabits: IHabit[]

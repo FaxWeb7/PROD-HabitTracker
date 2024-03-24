@@ -25,33 +25,36 @@ export const App: FC<IAppProps> = ({ children }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (currentDate == ''){
+    if (currentDate == '') {
       dispatch(currentDateActions.setValue(storeFormatDate(new Date())))
     }
-    if (!Object.keys(uploadData).length){
-      dispatch(uploadDataActions.setUploadData({ habits: [] as IHabit[], actions: [] as IHabitAction[] }))
+    if (!Object.keys(uploadData).length) {
+      dispatch(
+        uploadDataActions.setUploadData({
+          habits: [] as IHabit[],
+          actions: [] as IHabitAction[]
+        })
+      )
     }
-    if (Object.keys(user).length !== 0){
+    if (Object.keys(user).length !== 0) {
       setIsAuth(true)
     }
-    const newUser = countUserStats({user, uploadData, currentDate})
+    const newUser = countUserStats({ user, uploadData, currentDate })
     dispatch(userActions.setUser(newUser))
     setIsLoading(false)
   }, [])
 
-  if (isLoading){
+  if (isLoading) {
     return <Loading />
   }
-  if (!isAuth){
+  if (!isAuth) {
     return <AuthModal setIsAuth={setIsAuth} />
   }
 
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Header />
-      <main className='main'>
-        { children }
-      </main>
+      <main className="main">{children}</main>
       <Footer />
     </div>
   )

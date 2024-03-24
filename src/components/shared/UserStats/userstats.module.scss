@@ -1,6 +1,6 @@
 @import '@/styles/vars';
 
-.user-stats{
+.user-stats {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -8,70 +8,70 @@
   padding: 20px;
   border-radius: 8px;
   background-color: #fff;
-  &__col{
+  &__col {
     display: flex;
     flex-direction: column;
     gap: 25px;
   }
-  &__item{
+  &__item {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 14px;
-    &-title{
+    &-title {
       font-size: 18px;
     }
-    &-subtitle{
+    &-subtitle {
       font-size: 14px;
       opacity: 0.6;
       font-weight: 500;
     }
-    &-icon{
+    &-icon {
       font-size: 22px;
       color: $secondaryColor;
     }
   }
-  @media(max-width: 1024px){
-    &__item{
+  @media (max-width: 1024px) {
+    &__item {
       gap: 12px;
-      &-title{
+      &-title {
         font-size: 17px;
       }
-      &-subtitle{
+      &-subtitle {
         font-size: 13px;
       }
-      &-icon{
+      &-icon {
         font-size: 21px;
       }
     }
   }
-  @media(max-width: 450px){
+  @media (max-width: 450px) {
     padding: 15px 10px;
-    &__item{
+    &__item {
       gap: 8px;
-      &-title{
+      &-title {
         font-size: 16px;
       }
-      &-subtitle{
+      &-subtitle {
         font-size: 12px;
       }
-      &-icon{
+      &-icon {
         font-size: 19px;
       }
     }
   }
 
-  @media(max-width: 370px){
+  @media (max-width: 370px) {
     padding: 15px 2px;
-    &__item{
+    &__item {
       gap: 7px;
-      &-title{
+      &-title {
         font-size: 14px;
       }
-      &-subtitle{
+      &-subtitle {
         font-size: 10px;
       }
-      &-icon{
+      &-icon {
         font-size: 17px;
       }
     }

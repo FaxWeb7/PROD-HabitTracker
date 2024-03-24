@@ -1,38 +1,38 @@
-.habits{
+.habits {
   overflow-x: visible;
-  &__inner{
+  &__inner {
     display: flex;
     flex-direction: row;
     gap: 40px;
   }
-  &__main{
+  &__main {
     display: flex;
     flex-direction: column;
     gap: 30px;
     width: 65%;
   }
-  &__info{
+  &__info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
     width: 35%;
   }
-  @media(max-width: 1100px){
-    &__inner{
+  @media (max-width: 1100px) {
+    &__inner {
       gap: 30px;
     }
   }
-  @media(max-width: 840px){
-    &__inner{
+  @media (max-width: 840px) {
+    &__inner {
       display: flex;
       flex-direction: column;
       gap: 100px;
     }
-    &__main{
+    &__main {
       width: 100%;
     }
-    &__info{
+    &__info {
       width: 100%;
     }
   }

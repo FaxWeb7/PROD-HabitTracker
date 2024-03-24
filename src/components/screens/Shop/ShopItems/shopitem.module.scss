@@ -1,53 +1,53 @@
 @import '@/styles/vars';
 
-.shop-item{
+.shop-item {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  &__title{
+  &__title {
     font-size: 22px;
     font-weight: 600;
   }
-  &__cards{
+  &__cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
   }
-  &__card{
+  &__card {
     display: flex;
     flex-direction: column;
     gap: 50px;
     padding: 16px;
     background-color: white;
     border-radius: 7px;
-    &-header{
+    &-header {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
     }
-    &-info{
+    &-info {
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 4px;
     }
-    &-icon{
+    &-icon {
       font-size: 21px;
     }
-    &-amount{
+    &-amount {
       font-weight: 500;
       font-size: 18px;
     }
-    &-text{
+    &-text {
       font-weight: 500;
       font-size: 15px;
       text-align: right;
     }
-    &-main{
+    &-main {
       margin-top: auto;
       display: flex;
       flex-direction: row;
@@ -55,35 +55,36 @@
       align-items: flex-start;
       gap: 8px;
     }
-    &-subtext, &-link{
+    &-subtext,
+    &-link {
       font-size: 15px;
       font-weight: 500;
     }
-    &-link{
+    &-link {
       color: $primaryColor;
       text-align: right;
     }
-    &-button{
+    &-button {
       margin-top: -35px;
     }
-    &-wrapper-input{
+    &-wrapper-input {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
-    &-error{
+    &-error {
       color: rebeccapurple;
       font-size: 13px;
       align-self: flex-end;
     }
   }
-  .ref{
+  .ref {
     cursor: pointer;
   }
-  .file{
+  .file {
     display: none;
   }
-  .custom{
+  .custom {
     background-color: $primaryColor;
     color: white;
     border-radius: 5px;
@@ -92,52 +93,54 @@
     cursor: pointer;
     font-size: 14px;
   }
-  @media(max-width: 868px){
-    &__cards{
+  @media (max-width: 868px) {
+    &__cards {
       grid-template-columns: repeat(1, 1fr);
       grid-template-rows: repeat(3, 1fr);
     }
-    &__card{
+    &__card {
       gap: 40px;
       padding: 12px;
-      &-icon{
+      &-icon {
         font-size: 19px;
       }
-      &-error{
+      &-error {
         align-self: flex-start;
       }
     }
-    .custom{
+    .custom {
       align-self: flex-start;
     }
   }
-  @media(max-width: 550px){
-    &__card{
+  @media (max-width: 550px) {
+    &__card {
       gap: 30px;
       padding: 12px;
-      &-main{
+      &-main {
         margin-bottom: 15px;
         flex-direction: column;
         align-items: flex-start;
       }
-      &-icon{
+      &-icon {
         font-size: 19px;
       }
-      &-button{
+      &-button {
         margin-top: -25px;
       }
     }
   }
-  @media(max-width: 440px){
-    &__card{
+  @media (max-width: 440px) {
+    &__card {
       gap: 25px;
-      &-icon{
+      &-icon {
         font-size: 17px;
       }
-      &-amount{
+      &-amount {
         font-size: 16px;
       }
-      &-text, &-subtext, &-link{
+      &-text,
+      &-subtext,
+      &-link {
         font-size: 14px;
       }
     }

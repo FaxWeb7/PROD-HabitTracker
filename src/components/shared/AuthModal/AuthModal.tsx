@@ -1,24 +1,24 @@
-import { FC } from 'react';
-import { useDispatch } from 'react-redux';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { IoSend } from 'react-icons/io5';
-import { userActions } from '@/store/user/user.slice';
-import { IUser } from '@/models/User/IUser';
-import { IAuthFormInputs } from '@/interfaces/interfaces';
-import { PrimaryButton } from '../PrimaryButton/PrimaryButton';
-import styles from './authmodal.module.scss';
+import { FC } from 'react'
+import { useDispatch } from 'react-redux'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { IoSend } from 'react-icons/io5'
+import { userActions } from '@/store/user/user.slice'
+import { IUser } from '@/models/User/IUser'
+import { IAuthFormInputs } from '@/interfaces/interfaces'
+import { PrimaryButton } from '../PrimaryButton/PrimaryButton'
+import styles from './authmodal.module.scss'
 
 interface IAuthModalProps {
-  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const AuthModal: FC<IAuthModalProps> = ({ setIsAuth }: IAuthModalProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<IAuthFormInputs>();
-  const dispatch = useDispatch();
+    formState: { errors }
+  } = useForm<IAuthFormInputs>()
+  const dispatch = useDispatch()
 
   const onSubmit: SubmitHandler<IAuthFormInputs> = (data) => {
     const initialUserVal: IUser = {
@@ -28,11 +28,11 @@ export const AuthModal: FC<IAuthModalProps> = ({ setIsAuth }: IAuthModalProps) =
       maxExperience: 0,
       currentStreak: 0,
       maxStreak: 0,
-      prodCoins: data.randomNum,
-    };
-    dispatch(userActions.setUser(initialUserVal));
-    setIsAuth(true);
-  };
+      prodCoins: data.randomNum
+    }
+    dispatch(userActions.setUser(initialUserVal))
+    setIsAuth(true)
+  }
 
   return (
     <div className={styles.modal}>
@@ -58,8 +58,8 @@ export const AuthModal: FC<IAuthModalProps> = ({ setIsAuth }: IAuthModalProps) =
               {...register('randomNum', {
                 required: 'Это поле обязательно!',
                 validate: {
-                  validNumber: (value) => (value >= 1 && value <= 100) || 'Введите число от 1 до 100',
-                },
+                  validNumber: (value) => (value >= 1 && value <= 100) || 'Введите число от 1 до 100'
+                }
               })}
             />
             {errors.randomNum && <span className={styles['modal__form-error']}>{errors.randomNum.message}</span>}
@@ -68,5 +68,5 @@ export const AuthModal: FC<IAuthModalProps> = ({ setIsAuth }: IAuthModalProps) =
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

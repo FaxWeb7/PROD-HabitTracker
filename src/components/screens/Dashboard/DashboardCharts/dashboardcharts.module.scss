@@ -1,74 +1,74 @@
-.charts{
+.charts {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  &__item{
+  &__item {
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
     width: 610px;
     width: 50%;
-    div{
-      width: 100%!important;
-      height: 100%!important;
+    div {
+      width: 100% !important;
+      height: 100% !important;
     }
-    &-title{
+    &-title {
       margin-bottom: -40px;
       font-size: 26px;
     }
-    &-subtitle{
+    &-subtitle {
       margin-top: -50px;
       font-size: 14px;
       margin-bottom: 50px;
     }
   }
-  tspan{
+  tspan {
     font-size: 9px;
   }
-  @media(max-width: 1200px){
-    &__item{
-      &-title{
+  @media (max-width: 1200px) {
+    &__item {
+      &-title {
         font-size: 22px;
       }
     }
   }
-  @media(max-width: 1100px){
-    &__item{
-      &-title{
+  @media (max-width: 1100px) {
+    &__item {
+      &-title {
         font-size: 21px;
         margin-bottom: -30px;
       }
     }
   }
-  @media(max-width: 968px){
+  @media (max-width: 968px) {
     flex-direction: column;
     align-items: center;
-    &__item{
+    &__item {
       width: 70%;
-      &-title{
+      &-title {
         margin-bottom: -15px;
       }
-      &-subtitle{
+      &-subtitle {
         margin-top: -20px;
         font-size: 13px;
         margin-bottom: 20px;
       }
     }
   }
-  @media(max-width: 690px){
-    &__item{
+  @media (max-width: 690px) {
+    &__item {
       width: 100%;
     }
   }
-  @media(max-width: 480px){
-    &__item{
-      &-title{
+  @media (max-width: 480px) {
+    &__item {
+      &-title {
         margin-bottom: 0;
       }
-      div{
+      div {
         transform: scale(1.2);
       }
-      &-subtitle{
+      &-subtitle {
         margin-top: 0px;
         margin-bottom: 15px;
       }

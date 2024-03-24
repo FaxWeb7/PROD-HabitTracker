@@ -1,19 +1,19 @@
 @import '@/styles/vars';
 
-.habits-upload{
+.habits-upload {
   display: flex;
   flex-direction: column;
   gap: 25px;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
-  &__text{
+  &__text {
     font-size: 21px;
   }
-  &__input{
+  &__input {
     display: none;
   }
-  &__custom{
+  &__custom {
     background-color: $secondaryColor;
     color: $bodyBackgroundColor;
     border-radius: 5px;
@@ -22,23 +22,23 @@
     cursor: pointer;
     font-size: 14px;
   }
-  &__button{
+  &__button {
     font-size: 14px;
     margin-top: -10px;
   }
-  @media(max-width: 900px){
-    &__text{
+  @media (max-width: 900px) {
+    &__text {
       font-size: 19px;
     }
   }
-  @media(max-width: 840px){
-    &__text{
+  @media (max-width: 840px) {
+    &__text {
       font-size: 18px;
     }
-    &__custom{
+    &__custom {
       font-size: 13px;
     }
-    &__button{
+    &__button {
       font-size: 13px;
       padding: 6px 8px;
     }

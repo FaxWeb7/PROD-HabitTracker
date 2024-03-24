@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from 'react'
 
 interface UseOutsideReturnType {
   ref: React.LegacyRef<HTMLDivElement> | undefined
@@ -7,21 +7,21 @@ interface UseOutsideReturnType {
 }
 
 export const useOutside = (initialIsVisible: boolean): UseOutsideReturnType => {
-  const [isShow, setIsShow] = useState(initialIsVisible);
-  const ref = useRef<HTMLDivElement>(null);
+  const [isShow, setIsShow] = useState(initialIsVisible)
+  const ref = useRef<HTMLDivElement>(null)
 
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains(event.target as Node)) {
-      setIsShow(false);
+      setIsShow(false)
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener('click', handleClickOutside, true)
     return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  }, []);
+      document.removeEventListener('click', handleClickOutside, true)
+    }
+  }, [])
 
-  return { ref, isShow, setIsShow };
-};
+  return { ref, isShow, setIsShow }
+}

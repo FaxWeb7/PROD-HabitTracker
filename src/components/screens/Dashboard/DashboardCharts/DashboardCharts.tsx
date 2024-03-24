@@ -1,14 +1,14 @@
-import { FC, useLayoutEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { LineChart } from '@mui/x-charts/LineChart';
-import { selectUploadData } from '@/store/uploadData/uploadData.slice';
-import { IChartItem } from '@/interfaces/interfaces';
-import { generateAddedHabitsInfo, generateCompletedHabitsInfo } from './GenerateChartsInfo';
+import { FC, useLayoutEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { LineChart } from '@mui/x-charts/LineChart'
+import { selectUploadData } from '@/store/uploadData/uploadData.slice'
+import { IChartItem } from '@/interfaces/interfaces'
+import { generateAddedHabitsInfo, generateCompletedHabitsInfo } from './GenerateChartsInfo'
 import styles from './dashboardcharts.module.scss'
 
 export const DashboardCharts: FC = () => {
-  const [completedHabits, setCompletedHabits] = useState<IChartItem>({axisX: [1], axisY: [0]})
-  const [addedHabits, setAddedHabits] = useState<IChartItem>({axisX: [1], axisY: [0]})
+  const [completedHabits, setCompletedHabits] = useState<IChartItem>({ axisX: [1], axisY: [0] })
+  const [addedHabits, setAddedHabits] = useState<IChartItem>({ axisX: [1], axisY: [0] })
   const { uploadData } = useSelector(selectUploadData)
 
   useLayoutEffect(() => {
@@ -19,15 +19,15 @@ export const DashboardCharts: FC = () => {
   }, [])
 
   return (
-    <ul role='list' className={styles['charts']}>
+    <ul role="list" className={styles['charts']}>
       <li className={styles['charts__item']}>
         <h2 className={styles['charts__item-title']}>График количества выполненных привычек в день</h2>
         <LineChart
           xAxis={[{ data: completedHabits.axisX }]}
           series={[
             {
-              data: completedHabits.axisY,
-            },
+              data: completedHabits.axisY
+            }
           ]}
           width={320}
           height={240}
@@ -40,8 +40,8 @@ export const DashboardCharts: FC = () => {
           xAxis={[{ data: addedHabits.axisX }]}
           series={[
             {
-              data: addedHabits.axisY,
-            },
+              data: addedHabits.axisY
+            }
           ]}
           width={320}
           height={240}

@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { useTitle } from '../../../hooks/useTitle';
-import styles from './error.module.scss';
+import { FC } from 'react'
+import { useTitle } from '../../../hooks/useTitle'
+import styles from './error.module.scss'
 
 export const Error: FC = () => {
   useTitle('404')

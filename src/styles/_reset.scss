@@ -1,10 +1,10 @@
-html{
+html {
   box-sizing: border-box;
 }
 
 *,
 *::after,
-*::before{
+*::before {
   box-sizing: inherit;
 }
 
@@ -49,12 +49,12 @@ select {
   font: inherit;
 }
 
-a{
+a {
   color: black;
   text-decoration: none;
 }
 
-button{
+button {
   border: none;
   border-radius: 0;
   background-color: white;

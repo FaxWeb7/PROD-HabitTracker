@@ -1,13 +1,13 @@
 interface IHandleWeekChange {
-  setWeekDates: React.Dispatch<React.SetStateAction<string[]>>;
-  days: string[],
-  currentDate: Date,
+  setWeekDates: React.Dispatch<React.SetStateAction<string[]>>
+  days: string[]
+  currentDate: Date
 }
 
 export const handleWeekChange = (weekData: IHandleWeekChange) => {
   const currentDay = weekData.currentDate.getDay()
   const startDate = new Date(weekData.currentDate.getFullYear(), weekData.currentDate.getMonth(), weekData.currentDate.getDate() - currentDay)
-  
+
   const dates = []
   for (let i = 0; i < 7; i++) {
     const date = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000)

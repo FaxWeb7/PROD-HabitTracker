@@ -1,10 +1,10 @@
-import { FC } from 'react';
-import { useTitle } from '../../../hooks/useTitle';
-import { UserStats } from '@/components/shared/UserStats/UserStats';
-import { ShopStatsList } from './ShopStatsList';
-import { ShopEarn } from './ShopItems/ShopEarn';
-import { ShopSpend } from './ShopItems/ShopSpend';
-import styles from './shop.module.scss';
+import { FC } from 'react'
+import { useTitle } from '../../../hooks/useTitle'
+import { UserStats } from '@/components/shared/UserStats/UserStats'
+import { ShopStatsList } from './ShopStatsList'
+import { ShopEarn } from './ShopItems/ShopEarn'
+import { ShopSpend } from './ShopItems/ShopSpend'
+import styles from './shop.module.scss'
 
 export const Shop: FC = () => {
   useTitle('Магазин')
