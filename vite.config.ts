@@ -6,9 +6,10 @@ import * as path from 'path'
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({ 
-      registerType: 'autoUpdate',
+    VitePWA({
       outDir: 'dist',
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
         name: 'Трекер привычек',
         short_name: 'Привычки',
@@ -29,12 +30,12 @@ export default defineConfig({
             src: 'logo/apple-touch-icon.png',
             sizes: '180x180',
             type: 'image/png'
-          },
+          }
         ]
       }
-    }),
+    })
   ],
   resolve: {
-    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
-  },
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
+  }
 })
