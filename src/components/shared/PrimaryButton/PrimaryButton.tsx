@@ -3,18 +3,25 @@ import { IconType } from 'react-icons';
 import styles from './primarybutton.module.scss';
 
 interface IPrimaryButton {
-  text: string
-  icon?: IconType
-  onClick?: MouseEventHandler<HTMLButtonElement>
-  className?: string
-  type?: "button" | "submit" | "reset"
+  text: string;
+  icon?: IconType;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export const PrimaryButton: FC<IPrimaryButton> = (props: IPrimaryButton) => {
   return (
-    <button className={`${styles['button']} ${props?.className}`} type={props?.type} aria-autocomplete='none' onClick={props.onClick}>
+    <button
+      className={`${styles['button']} ${props?.className}`}
+      type={props?.type}
+      aria-autocomplete="none"
+      onClick={props.onClick}
+      disabled={props?.disabled}
+    >
       {props.icon && <props.icon className={styles['button__icon']} />}
       <h3 className={styles['button__text']}>{props.text}</h3>
     </button>
-  )
-}
+  );
+};

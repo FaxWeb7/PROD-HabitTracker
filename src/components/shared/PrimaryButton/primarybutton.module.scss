@@ -10,6 +10,13 @@
   transition: all .5s ease;
   border-radius: 6px;
   background: linear-gradient(0.6turn, $primaryLightColor, $primaryColor);
+  &:disabled{
+    background: gray;
+    &:hover{
+      transform: scale(1);
+      box-shadow: none; 
+    }
+  }
   &__icon{
     color: white;
     width: 22px;
