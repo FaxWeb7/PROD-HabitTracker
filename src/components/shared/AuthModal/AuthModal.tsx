@@ -34,6 +34,16 @@ export const AuthModal: FC<IAuthModalProps> = ({ setIsAuth }: IAuthModalProps) =
     setIsAuth(true)
   }
 
+  const requestNotificationPermission = async () => {
+    if ('Notification' in window) {
+      if (Notification.permission !== 'granted') {
+        await Notification.requestPermission()
+      }
+    } else {
+      return
+    }
+  }
+
   return (
     <div className={styles.modal}>
       <div className={`${styles['modal__container']} container`}>
@@ -46,6 +56,7 @@ export const AuthModal: FC<IAuthModalProps> = ({ setIsAuth }: IAuthModalProps) =
               autoComplete="name"
               className={styles['modal__form-input']}
               placeholder="Имя"
+              onClick={requestNotificationPermission}
               {...register('name', { required: true })}
             />
             {errors.name && <span className={styles['modal__form-error']}>Это поле обязательно!</span>}

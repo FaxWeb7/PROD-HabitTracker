@@ -42,6 +42,18 @@ export const App: FC<IAppProps> = ({ children }) => {
       dispatch(userActions.setUser(newUser))
     }
     setIsLoading(false)
+
+    const notificationInterval = setInterval(() => {
+      if (Notification.permission === 'granted') {
+        new Notification('Трекер привычек', {
+          body: 'Привет, не забывай выполнять привычки чтобы сохранять рекорд и получать больше опыта!'
+        })
+      }
+    }, 14400000)
+
+    return () => {
+      clearInterval(notificationInterval)
+    }
   }, []) //eslint-disable-line
 
   if (isLoading) {
