@@ -11,18 +11,16 @@ import { App } from './App.tsx'
 import './styles/global.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App>
-          <Routes>
-            <Route path="/" element={<HabitsScreen />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </App>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App>
+        <Routes>
+          <Route path="/" element={<HabitsScreen />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </App>
+    </BrowserRouter>
+  </Provider>
 )
