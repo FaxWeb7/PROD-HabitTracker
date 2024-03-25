@@ -19,6 +19,7 @@ import { addStopDateHabitById } from './helpers/AddStopDateHabitById'
 import { removeHabitById } from './helpers/RemoveHabitById'
 import { removeActionsById } from './helpers/RemoveActionsById'
 import { countUserStats } from '@/helpers/CountUserStats'
+import { experienceNotification, levelNotification, notificationsCondition } from './helpers/HabitItemNotifications'
 import { PrimaryButton } from '@/components/shared/PrimaryButton/PrimaryButton'
 import styles from './habitsitemmodal.module.scss'
 
@@ -28,7 +29,9 @@ interface HabitsItemModalProps {
 }
 
 export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalShow }: HabitsItemModalProps) => {
+  const [prevIsChecked, setPrevIsChecked] = useState<boolean>(false)
   const [isChecked, setIsChecked] = useState<boolean>(false)
+  const [prevInputValue, setPrevInputValue] = useState<string>('')
   const [inputValue, setInputValue] = useState<string>('')
   const [inputSum, setInputSum] = useState<number>(0)
   const { uploadData } = useSelector(selectUploadData)
@@ -42,7 +45,11 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
       if (dailyAction.value) {
         setInputSum(dailyAction.value)
         setInputValue(String(dailyAction.value))
-      } else setIsChecked(true)
+        setPrevInputValue(String(dailyAction.value))
+      } else {
+        setIsChecked(true)
+        setPrevIsChecked(true)
+      }
     }
     if (habit.period === 'weekly' || habit.period == 'monthly') {
       const habitHelperData = {
@@ -58,6 +65,7 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
         }
       } else if (getPeriodActionsById(habitHelperData)) {
         setIsChecked(true)
+        setPrevIsChecked(true)
       }
     }
   }, []) //eslint-disable-line
@@ -77,6 +85,10 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
     }
     const newUser = countUserStats({ user, uploadData: newUploadData, currentDate })
     dispatch(userActions.setUser(newUser))
+    if (notificationsCondition({ prevIsChecked, isChecked, prevInputValue, inputValue, inputSum, habit })) {
+      if (user.level < newUser.level) levelNotification(newUser)
+      experienceNotification(habit, newUser)
+    }
     setIsModalShow(false)
   }
 
@@ -116,7 +128,9 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
       </div>
       <div className={styles['habits-modal__item']}>
         <h4 className={styles['habits-modal__item-title']}>Период привычки: </h4>
-        <h4 className={styles['habits-modal__item-value']}>{habit.period === 'monthly' ? 'месяц' : habit.period === 'weekly' ? 'неделя' : 'день'}</h4>
+        <h4 className={styles['habits-modal__item-value']}>
+          {habit.period === 'monthly' ? 'месяц' : habit.period === 'weekly' ? 'неделя' : 'день'}
+        </h4>
       </div>
       {habit.targetValue && (
         <div className={styles['habits-modal__item']}>
@@ -127,7 +141,9 @@ export const HabitsItemModal: FC<HabitsItemModalProps> = ({ habit, setIsModalSho
         </div>
       )}
       <div className={styles['habits-modal__item']}>
-        <h4 className={styles['habits-modal__item-title']}>{habit.targetValue ? 'Установить выполнение за сегодня:' : 'Установить выполнение:'}</h4>
+        <h4 className={styles['habits-modal__item-title']}>
+          {habit.targetValue ? 'Установить выполнение за сегодня:' : 'Установить выполнение:'}
+        </h4>
         {habit.targetValue ? (
           <input
             type="text"

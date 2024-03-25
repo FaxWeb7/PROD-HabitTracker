@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { CiCircleMore } from 'react-icons/ci'
+import { Toaster } from 'react-hot-toast'
 import { IHabit } from '@/models/UploadData/IHabit'
 import { useOutside } from '@/hooks/useOutisde'
 import { HabitsItemModal } from '../HabitsItemModal/HabitsItemModal'
@@ -14,6 +15,7 @@ export const HabitItem: FC<HabitItemProps> = ({ habit }: HabitItemProps) => {
 
   return (
     <div ref={ref}>
+      <Toaster />
       {isShow && <HabitsItemModal habit={habit} setIsModalShow={setIsShow} />}
       <div className={styles['habit-item']}>
         <button className={styles['habit-item__button']} role="button" onClick={() => setIsShow(!isShow)} aria-label="open habit">
